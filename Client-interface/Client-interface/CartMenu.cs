@@ -30,8 +30,16 @@ namespace Client_interface
             }
             else if(delete == DialogResult.No)
             {
-                
             }
+        }
+
+        private void newCabinet_Click(object sender, EventArgs e)
+        {
+            NewCabinet nextForm = new NewCabinet();
+            this.Hide();
+            //nextForm.ShowDialog();
+            this.Close();
+
         }
     }
 }

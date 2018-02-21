@@ -43,6 +43,7 @@
             this.newCabinet.TabIndex = 0;
             this.newCabinet.Text = "new cabinet";
             this.newCabinet.UseVisualStyleBackColor = true;
+            this.newCabinet.Click += new System.EventHandler(this.newCabinet_Click);
             // 
             // textBox1
             // 
