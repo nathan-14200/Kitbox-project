@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace ClientClassLibrary
 {
-    public class Class1
+    public class Box
     {
+        private float height;
+        private string colour;
+        private bool HasAdder;
+        private List<Piece> composition = new List<Piece>();
+        private Adder adder;
+
+
     }
 }
