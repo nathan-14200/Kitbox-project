@@ -8,5 +8,80 @@ namespace ClientClassLibrary
 {
     class Cabinet
     {
+        private List<Box> Composition;
+        private double Width;
+        private double Depth;
+        private double Height;
+        private List<Piece> Composing;
+
+        public Cabinet()
+        {
+
+        }
+
+        public double width
+        {
+            get { return this.Width; }
+            set { this.Width = value; }
+        }
+
+        public double depth
+        {
+            get { return this.Depth; }
+            set { this.Depth = value; }
+        }
+
+        public double height
+        {
+            get { return this.Height; }
+            set { this.Height = value; }
+        }
+
+        public void AddBox(Box box)
+        {
+            Composition.Add(box);
+        }
+
+        public void DeleteBox(Box box)
+        {
+            foreach (Box elem in this.Composition)
+            {
+                if (box == elem)
+                {
+                    Composition.Remove(box);
+                }
+                else
+                {
+                    Console.WriteLine("Box not found");
+                }
+            }
+        }
+
+        public void UpdateComposing()
+        {
+            this.Composing = new List<Piece>();
+
+            foreach (Box box in this.Composition)
+            {
+                this.Composing.Add(box.SendComposing());
+            }
+        }
+
+        public List<Piece> SendComposing()
+        {
+            return Composing;
+        }
+
+        public int GetPrice()
+        {
+            int price = 0;
+
+            foreach (Box box in this.Composition)
+            {
+                price += box.CalculPrice();
+            }
+
+            return price;
+        }
     }
 }
