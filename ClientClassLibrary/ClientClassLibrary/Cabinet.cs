@@ -8,11 +8,11 @@ namespace ClientClassLibrary
 {
     class Cabinet
     {
-        private List<Box> Composition;
-        private double Width;
-        private double Depth;
-        private double Height;
-        private List<Piece> Composing;
+        private List<Box> boxComposition;
+        //private double width;
+        //private double depth;
+        //private double height;
+        private List<Piece> composition;
 
         public Cabinet()
         {
@@ -21,34 +21,34 @@ namespace ClientClassLibrary
 
         public double width
         {
-            get { return this.Width; }
-            set { this.Width = value; }
+            get { return this.width; }
+            set { this.width = value; }
         }
 
         public double depth
         {
-            get { return this.Depth; }
-            set { this.Depth = value; }
+            get { return this.depth; }
+            set { this.depth = value; }
         }
 
         public double height
         {
-            get { return this.Height; }
-            set { this.Height = value; }
+            get { return this.height; }
+            set { this.height = value; }
         }
 
         public void AddBox(Box box)
         {
-            Composition.Add(box);
+            boxComposition.Add(box);
         }
 
         public void DeleteBox(Box box)
         {
-            foreach (Box elem in this.Composition)
+            foreach (Box elem in this.boxComposition)
             {
                 if (box == elem)
                 {
-                    Composition.Remove(box);
+                    boxComposition.Remove(box);
                 }
                 else
                 {
@@ -56,29 +56,37 @@ namespace ClientClassLibrary
                 }
             }
         }
-
+        /*
         public void UpdateComposing()
         {
-            this.Composing = new List<Piece>();
+            this.composition = new List<Piece>();
 
-            foreach (Box box in this.Composition)
+            foreach (Box box in this.boxComposition)
             {
                 this.Composing.Add(box.SendComposing());
             }
         }
+        */
 
-        public List<Piece> SendComposing()
+        public List<Piece> GetComposition()
         {
-            return Composing;
+            List<Piece> comp = composition;
+
+            foreach(Box box in boxComposition)
+            {
+                comp.AddRange(box.GetComposition());
+            }
+            return comp;
         }
 
-        public int GetPrice()
+        public float GetPrice()
         {
-            int price = 0;
+            float price = 0;
 
-            foreach (Box box in this.Composition)
+            List<Piece> comp = GetComposition();
+            foreach(Piece piece in comp)
             {
-                price += box.CalculPrice();
+                price += piece.GetPrice();
             }
 
             return price;

@@ -35,6 +35,7 @@ namespace ClientClassLibrary
 
         public void SetAdder(string adder)
         {
+            //Check if adder in our list before accepting a change  
             List<string> possibleAdder = Adder.GetAdder();
             if (possibleAdder.Contains(adder))
             {
