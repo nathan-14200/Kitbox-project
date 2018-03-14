@@ -82,16 +82,16 @@ namespace ClientClassLibrary
             return comp;
         }
 
+
         public float GetPrice()
         {
             float price = 0;
-
             List<Piece> comp = GetComposition();
+  
             foreach(Piece piece in comp)
             {
                 price += piece.GetPrice();
             }
-
             return price;
         }
     }
