@@ -63,7 +63,7 @@ namespace ClientClassLibrary
 
             foreach (Box box in this.Composition)
             {
-                this.Composing.Add(box.SendComposing());
+                this.Composing.Concat(box.GetComposition());
             }
         }
 
@@ -72,13 +72,13 @@ namespace ClientClassLibrary
             return Composing;
         }
 
-        public int GetPrice()
+        public double GetPrice()
         {
-            int price = 0;
+            double price = 0;
 
             foreach (Box box in this.Composition)
             {
-                price += box.CalculPrice();
+                price += box.GetPrice();
             }
 
             return price;

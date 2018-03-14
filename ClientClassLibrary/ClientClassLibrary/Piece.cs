@@ -10,7 +10,7 @@ namespace ClientClassLibrary
     {
         private int ID;
         private string name;
-        private float price;
+        private double price;
         private string colour;
         private bool instock;
 
@@ -34,7 +34,7 @@ namespace ClientClassLibrary
             return this.name;
         }
 
-        public float GetPrice()
+        public double GetPrice()
         {
             return this.price;
         }

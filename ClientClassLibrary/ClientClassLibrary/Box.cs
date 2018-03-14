@@ -42,5 +42,17 @@ namespace ClientClassLibrary
             }                
         }
 
+        public double GetPrice()
+        {
+            double price = 0;
+
+            foreach (Piece piece in this.composition)
+            {
+                price += piece.GetPrice();
+            }
+
+            return price;
+        }
+
     }
 }
