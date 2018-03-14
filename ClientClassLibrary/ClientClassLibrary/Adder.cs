@@ -9,7 +9,7 @@ namespace ClientClassLibrary
     class Adder
     {
         //The key is the name of the adder and the value is a list of the pieces
-        private static Dictionary<string, List<string>> possibleAdder = new Dictionary<string, List<string>>();
+        private static Dictionary<string, List<Piece>> possibleAdder = new Dictionary<string, List<Piece>>();
         //ajouter les adder + leurs pièces
 
         //Gives a list of possible adder
@@ -20,11 +20,11 @@ namespace ClientClassLibrary
         }
 
         //Get the list of pieces of a specific adder
-        public static List<string> GetPieces(string adder)
+        public static List<Piece> GetPieces(string adder)
         {
-            List<string> pieces = new List<string>();
+            List<Piece> pieces = new List<Piece>();
 
-            foreach (KeyValuePair < string, List<string>> Adder in possibleAdder)
+            foreach (KeyValuePair < string, List<Piece>> Adder in possibleAdder)
             {
                 if (Adder.Key == adder)
                 {

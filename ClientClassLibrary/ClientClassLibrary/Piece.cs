@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientClassLibrary
 {
-    class Piece
+    public class Piece
     {
         private int ID;
         private string name;

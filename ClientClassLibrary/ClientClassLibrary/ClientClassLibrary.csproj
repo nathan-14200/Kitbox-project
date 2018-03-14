@@ -43,7 +43,7 @@
     <Compile Include="Adder.cs" />
     <Compile Include="Cabinet.cs" />
     <Compile Include="Cart.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Box.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
