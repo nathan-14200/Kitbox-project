@@ -9,41 +9,54 @@ namespace ClientClassLibrary
     class Cabinet
     {
         private List<Box> boxComposition;
-        //private double width;
-        //private double depth;
+        private float width;
+        private float depth;
         //private double height;
         private List<Piece> composition;
 
-        public Cabinet()
+        public Cabinet(float width, float depth)
         {
-
+            this.width = width;
+            this.depth = depth;
         }
 
-        public double width
+        public float GetWidth()
         {
-            get { return this.width; }
-            set { this.width = value; }
+            return this.width;
         }
 
-        public double depth
+        public float GetDepth()
         {
-            get { return this.depth; }
-            set { this.depth = value; }
+            return this.depth;
         }
 
-        public double height
+        public float height
         {
             get { return this.height; }
             set { this.height = value; }
         }
 
-        public void AddBox(Box box)
+        public int AddBox(Box box)
         {
-            boxComposition.Add(box);
+            //Has to check if not more than 7 boxes and certain height limit.
+            //Error message if not added?
+            
+            float h = box.getHeight() + height;
+            if(boxComposition.Count < 7)  // + height limit
+            {
+                boxComposition.Add(box);
+                height += box.getHeight();
+
+                return 0;
+            }
+
+            return 1;            
         }
 
         public void DeleteBox(Box box)
         {
+            //To be changed (no print)
+
             foreach (Box elem in this.boxComposition)
             {
                 if (box == elem)
@@ -56,17 +69,7 @@ namespace ClientClassLibrary
                 }
             }
         }
-        /*
-        public void UpdateComposing()
-        {
-            this.composition = new List<Piece>();
 
-            foreach (Box box in this.boxComposition)
-            {
-                this.Composing.Add(box.SendComposing());
-            }
-        }
-        */
 
         public List<Piece> GetComposition()
         {

@@ -43,5 +43,10 @@ namespace ClientClassLibrary
             }                
         }
 
+        public float getHeight()
+        {
+            return height;
+        }
+
     }
 }
