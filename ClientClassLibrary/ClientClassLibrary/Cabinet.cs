@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientClassLibrary
 {
-    class Cabinet
+    public class Cabinet
     {
         private List<Box> boxComposition;
         private float width;
