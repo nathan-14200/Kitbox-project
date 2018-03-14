@@ -15,13 +15,13 @@ namespace ClientClassLibrary
         private string adder;
 
 
-        public Box(float height, string colour, bool hasAdder, List<Piece> composition)
+        public Box(float height, string colour, bool hasAdder)
         {
             //The typical pieces of a box must be added here in composition
             this.height = height;
             this.colour = colour;
             this.HasAdder = hasAdder;
-            this.composition = composition; //to be finished
+            //this.composition = ...; to be finished
         }
 
         public List<Piece> GetComposition()

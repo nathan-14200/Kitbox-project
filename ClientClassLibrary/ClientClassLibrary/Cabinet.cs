@@ -8,6 +8,5 @@ namespace ClientClassLibrary
 {
     class Cabinet
     {
-
     }
 }
