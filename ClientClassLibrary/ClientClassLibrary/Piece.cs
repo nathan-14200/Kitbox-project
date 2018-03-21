@@ -69,5 +69,35 @@ namespace ClientClassLibrary
         {
             return this.depth;
         }
+
+        public T GetAttribute<T>(string attribute)
+        {
+            //Magical getter to simplify the Search class
+            //Return T n = null if attribute not found
+            if(attribute == "height")
+            {
+                return (T)Convert.ChangeType(GetHeight(), typeof(T));
+            }
+
+            else if (attribute == "depth")
+            {
+                return (T)Convert.ChangeType(GetDepth(), typeof(T));
+            }
+
+            else if (attribute == "width")
+            {
+                return (T)Convert.ChangeType(GetWidth(), typeof(T));
+            }
+
+            else if (attribute == "colour")
+            {
+                return (T)Convert.ChangeType(GetColour(), typeof(T));
+            }
+            else
+            {
+                string n = null ;
+                return (T)Convert.ChangeType(n, typeof(T)); ;
+            }
+        }
     }
 }
