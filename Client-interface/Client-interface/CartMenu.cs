@@ -37,8 +37,13 @@ namespace Client_interface
         {
             NewCabinet nextForm = new NewCabinet();
             this.Hide();
-            //nextForm.ShowDialog();
+            nextForm.ShowDialog();
             this.Close();
+
+        }
+
+        private void CartMenu_Load(object sender, EventArgs e)
+        {
 
         }
     }

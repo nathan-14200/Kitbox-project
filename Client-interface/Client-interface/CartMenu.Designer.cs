@@ -37,9 +37,10 @@
             // 
             // newCabinet
             // 
-            this.newCabinet.Location = new System.Drawing.Point(13, 25);
+            this.newCabinet.Location = new System.Drawing.Point(17, 31);
+            this.newCabinet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.newCabinet.Name = "newCabinet";
-            this.newCabinet.Size = new System.Drawing.Size(145, 31);
+            this.newCabinet.Size = new System.Drawing.Size(193, 39);
             this.newCabinet.TabIndex = 0;
             this.newCabinet.Text = "new cabinet";
             this.newCabinet.UseVisualStyleBackColor = true;
@@ -48,36 +49,40 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(13, 77);
+            this.textBox1.Location = new System.Drawing.Point(17, 96);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(532, 291);
+            this.textBox1.Size = new System.Drawing.Size(708, 363);
             this.textBox1.TabIndex = 1;
             // 
             // validate
             // 
-            this.validate.Location = new System.Drawing.Point(469, 405);
+            this.validate.Location = new System.Drawing.Point(625, 506);
+            this.validate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.validate.Name = "validate";
-            this.validate.Size = new System.Drawing.Size(99, 36);
+            this.validate.Size = new System.Drawing.Size(132, 45);
             this.validate.TabIndex = 2;
             this.validate.Text = "validate";
             this.validate.UseVisualStyleBackColor = true;
             // 
             // modify
             // 
-            this.modify.Location = new System.Drawing.Point(364, 405);
+            this.modify.Location = new System.Drawing.Point(485, 506);
+            this.modify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.modify.Name = "modify";
-            this.modify.Size = new System.Drawing.Size(99, 36);
+            this.modify.Size = new System.Drawing.Size(132, 45);
             this.modify.TabIndex = 3;
             this.modify.Text = "modify";
             this.modify.UseVisualStyleBackColor = true;
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(260, 405);
+            this.cancel.Location = new System.Drawing.Point(347, 506);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(98, 36);
+            this.cancel.Size = new System.Drawing.Size(131, 45);
             this.cancel.TabIndex = 4;
             this.cancel.Text = "cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -85,16 +90,18 @@
             // 
             // CartMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 453);
+            this.ClientSize = new System.Drawing.Size(773, 566);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.modify);
             this.Controls.Add(this.validate);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.newCabinet);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CartMenu";
             this.Text = "CartMenu";
+            this.Load += new System.EventHandler(this.CartMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

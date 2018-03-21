@@ -16,18 +16,47 @@ namespace Client_interface
         public NewCabinet()
         {
             InitializeComponent();
+        }
 
+        private void NewCabinet_Load(object sender, EventArgs e)
+        {
+            /*
             Graphics dc = this.CreateGraphics();
             this.Show();
             Pen BluePen = new Pen(Color.Blue, 3);
             dc.DrawRectangle(BluePen, 0, 0, 50, 50);
             Pen RedPen = new Pen(Color.Red, 2);
             dc.DrawEllipse(RedPen, 0, 50, 80, 60);
+            */
         }
 
-        private void NewCabinet_Load(object sender, EventArgs e)
+
+        private void WidthValidate_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+
+        private void DepthValidate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void newBox_Click(object sender, EventArgs e)
+        {
+            CabinetMenu nextForm = new CabinetMenu();
+            this.Hide();
+            nextForm.ShowDialog();
+            this.Close();
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            CartMenu nextForm = new CartMenu();
+            this.Hide();
+            nextForm.ShowDialog();
+            this.Close();
         }
     }
 }

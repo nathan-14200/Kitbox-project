@@ -24,5 +24,10 @@ namespace Client_interface
             nextForm.ShowDialog();
             this.Close();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
