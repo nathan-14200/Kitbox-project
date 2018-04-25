@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientClassLibrary;
 
 namespace Client_interface
 {
     public partial class NewCabinet : Form
     {
+        private string selectedWidth = "";
         public NewCabinet()
         {
             InitializeComponent();
@@ -28,6 +30,38 @@ namespace Client_interface
             Pen RedPen = new Pen(Color.Red, 2);
             dc.DrawEllipse(RedPen, 0, 50, 80, 60);
             */
+
+            //Have to us dic even though it is twice the same value because ComboBox needs a dictionary
+            widthBox.DataSource = new BindingSource(SetComboBoxValues("width"), null);
+            widthBox.DisplayMember = "Value";
+            widthBox.ValueMember = "Key";
+            depthBox.DataSource = new BindingSource(SetComboBoxValues("depth"), null);
+            depthBox.DisplayMember = "Value";
+            depthBox.ValueMember = "Key";
+
+        }
+
+        //car could be width or depth
+        private Dictionary<float, float> SetComboBoxValues(string car, float width = 0, float depth = 0)
+        {
+            Dictionary<float, float> values = new Dictionary<float, float>();
+
+            //No restriction and we load all possible car
+            if(width == 0 && depth == 0)
+            {
+                List<Piece> pieces = InitComp.GetAllPieces();
+
+                foreach(Piece p in pieces)
+                {
+                    float t = p.GetAttribute<float>(car) ;
+                    if (!values.ContainsKey(t) && t != 0)
+                    {
+                        values[t] = t;
+                    }
+                }
+            }
+
+            return values;
         }
 
 
@@ -57,6 +91,12 @@ namespace Client_interface
             this.Hide();
             nextForm.ShowDialog();
             this.Close();
+        }
+
+        private void widthBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            selectedWidth = (string)comboBox.SelectedText;
         }
     }
 }

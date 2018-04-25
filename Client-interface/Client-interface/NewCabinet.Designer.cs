@@ -78,6 +78,7 @@
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(276, 33);
             this.widthBox.TabIndex = 5;
+            this.widthBox.SelectedIndexChanged += new System.EventHandler(this.widthBox_SelectedIndexChanged);
             // 
             // depthBox
             // 
