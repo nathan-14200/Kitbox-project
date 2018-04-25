@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace ClientClassLibrary
 {
-    class DatabaseConnect
+    public class DatabaseConnect
     {
         private MySqlConnection connection;
         private string server;

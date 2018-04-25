@@ -16,6 +16,14 @@ namespace ClientClassLibrary
         {
             //Retrieve and create Piece object and place them in allPieces list
 
+            DatabaseConnect connection = new DatabaseConnect();
+            Dictionary<string, List<string>> rawData = connection.SelectPieces();
+
+            foreach(KeyValuePair<string,List<string>> k in rawData)
+            {
+                Console.WriteLine(k.Key);
+            }
+
         }
 
         public static List<Piece> GetAllPieces()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientClassLibrary
 {
-    class Adder
+    public class Adder
     {
         //The key is the name of the adder and the value is a list of the pieces
         private static Dictionary<string, List<Piece>> possibleAdder = new Dictionary<string, List<Piece>>();
