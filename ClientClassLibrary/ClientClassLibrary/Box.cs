@@ -46,7 +46,10 @@ namespace ClientClassLibrary
         public float getHeight()
         {
             return height;
-  
+
+        }
+
+
         public double GetPrice()
         {
             double price = 0;
