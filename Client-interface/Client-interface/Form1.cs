@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientClassLibrary;
 
 namespace Client_interface
 {
@@ -15,6 +16,7 @@ namespace Client_interface
         public Home()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
