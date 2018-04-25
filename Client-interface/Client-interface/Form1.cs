@@ -26,6 +26,11 @@ namespace Client_interface
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Test
+            ClientClassLibrary.InitComp.Retrievecomp();
+            MessageBox.Show("size of allPieces: " + ClientClassLibrary.InitComp.GetAllPieces().Count().ToString());
+            //Test
+
             CartMenu nextForm = new CartMenu();
             this.Hide();
             nextForm.ShowDialog();
@@ -35,7 +40,7 @@ namespace Client_interface
         private void Home_Load(object sender, EventArgs e)
         {
             AllocConsole();
-            ClientClassLibrary.InitComp.Retrievecomp();
+            
         }
     }
 }
