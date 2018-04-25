@@ -15,7 +15,7 @@ namespace ClientClassLibrary
         public static void Retrievecomp()
         {
             //Retrieve and create Piece object and place them in allPieces list
-
+            Console.WriteLine("In Retrieve");
             DatabaseConnect connection = new DatabaseConnect();
             Dictionary<string, List<string>> rawData = connection.SelectPieces();
 
@@ -23,6 +23,8 @@ namespace ClientClassLibrary
             {
                 Console.WriteLine(k.Key);
             }
+
+            Console.WriteLine("End of Retrieve");
 
         }
 

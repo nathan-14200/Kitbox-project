@@ -71,6 +71,7 @@ namespace ClientClassLibrary
 
             if (this.OpenConnection() == true)
             {
+                Console.WriteLine("Connected");
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -98,6 +99,7 @@ namespace ClientClassLibrary
             }
             else
             {
+                Console.WriteLine("Could not connect");
                 return data;
             }
 
