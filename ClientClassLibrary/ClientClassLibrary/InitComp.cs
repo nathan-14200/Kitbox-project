@@ -23,6 +23,22 @@ namespace ClientClassLibrary
             {
                 Console.WriteLine(k.Key);
             }
+            
+
+            for(int i = 0; i <rawData["Code"].Count(); i++)
+            {
+                Boolean inStock = false;
+                if(Int32.Parse(rawData["Enstock"][i]) > 0)
+                {
+                    inStock = true;
+                }
+
+                Piece p = new Piece(rawData["Code"][i], rawData["Réf"][i], float.Parse(rawData["Prix-Client"][i]),
+                    float.Parse(rawData["hauteur"][i]), float.Parse(rawData["largeur"][i]),
+                    float.Parse(rawData["profondeur"][i]),rawData["Couleur"][i], inStock);
+
+                allPieces.Add(p);
+            }
 
             Console.WriteLine("End of Retrieve");
 

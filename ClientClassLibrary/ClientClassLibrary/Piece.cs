@@ -8,7 +8,7 @@ namespace ClientClassLibrary
 {
     public class Piece
     {
-        private int ID;
+        private string ID;
         private string name;
         private float price;
         private float heigth;
@@ -17,7 +17,7 @@ namespace ClientClassLibrary
         private string colour;
         private bool instock;
 
-        public Piece(int ID, string name, float price, float heigth, float width, float depth, string colour, bool instock)
+        public Piece(string ID, string name, float price, float heigth, float width, float depth, string colour, bool instock)
         {
             this.ID = ID;
             this.name = name;
@@ -50,7 +50,7 @@ namespace ClientClassLibrary
             return this.colour;
         }
 
-        public int GetID()
+        public string GetID()
         {
             return this.ID;
         }
