@@ -10,22 +10,25 @@ namespace ClientClassLibrary
 {
     public static class InitComp
     {
-        private static List<Piece> allPieces;
+        private static List<Piece> allPieces = new List<Piece>();
 
         public static void Retrievecomp()
         {
-            //Retrieve and create Piece object and place them in allPieces list
+            //Test
             Console.WriteLine("In Retrieve");
+            //Test
+
             DatabaseConnect connection = new DatabaseConnect();
             Dictionary<string, List<string>> rawData = connection.SelectPieces();
-
+            //Test
             foreach(KeyValuePair<string,List<string>> k in rawData)
             {
                 Console.WriteLine(k.Key);
             }
+            //Test
             
 
-            for(int i = 0; i <rawData["Code"].Count(); i++)
+            for(int i = 0; i < rawData["Code"].Count(); i++)
             {
                 Boolean inStock = false;
                 if(Int32.Parse(rawData["Enstock"][i]) > 0)
@@ -33,15 +36,15 @@ namespace ClientClassLibrary
                     inStock = true;
                 }
 
-                Piece p = new Piece(rawData["Code"][i], rawData["Réf"][i], float.Parse(rawData["Prix-Client"][i]),
+                allPieces.Add(new Piece(rawData["Code"][i], rawData["Ref"][i], float.Parse(rawData["Prix-Client"][i]),
                     float.Parse(rawData["hauteur"][i]), float.Parse(rawData["largeur"][i]),
-                    float.Parse(rawData["profondeur"][i]),rawData["Couleur"][i], inStock);
+                    float.Parse(rawData["profondeur"][i]),rawData["Couleur"][i], inStock));
 
-                allPieces.Add(p);
+                
             }
-
+            //Test
             Console.WriteLine("End of Retrieve");
-
+            //Test
         }
 
         public static List<Piece> GetAllPieces()
@@ -49,6 +52,8 @@ namespace ClientClassLibrary
             return allPieces;
         }
 
+
+        
         public static void UpdateDB(String CmdString, Dictionary<String,int> Mod)
         {
             /* 

@@ -14,7 +14,6 @@ namespace ClientClassLibrary
         private string server;
         private string database;
         private string uid;
-        private string password;
 
         public DatabaseConnect()
         {
@@ -26,12 +25,12 @@ namespace ClientClassLibrary
             server = "localhost";
             database = "kitbox";
             uid = "root";
-            password = "";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "server = " + server + "; " + "database = " +
+            database + "; " + "uid =" + uid + "; SslMode=none;";
 
             connection = new MySqlConnection(connectionString);
+            Console.WriteLine("hi there");
         }
 
         private bool OpenConnection()
@@ -41,8 +40,9 @@ namespace ClientClassLibrary
                 connection.Open();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return false;
 
             }
@@ -65,16 +65,13 @@ namespace ClientClassLibrary
         //Select the whole "pieces" table
         public Dictionary<string, List<string>> SelectPieces()
         {
-            string query = "SELECT * FROM piece";
+            string query = "SELECT * FROM pieces";
 
             Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
 
             if (this.OpenConnection() == true)
             {
-                Console.WriteLine("Connected");
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
                 DataTable schema = null;
 
                 //Gets the name of the columns
@@ -83,13 +80,31 @@ namespace ClientClassLibrary
                     schema = reader.GetSchemaTable();
                 }
 
+                Console.WriteLine("Connected");
+                
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int i = 0;
+
                 while (dataReader.Read())
                 {
                    foreach(DataRow col in schema.Rows)
                    {
-                        string colName = col.ToString();
-                        data[colName].Add(dataReader[colName].ToString() + "");
+                        string colName = col.Field<string>("ColumnName");
+                        if (i == 0)
+                        {
+                            data[colName] = new List<string>();
+                            data[colName].Add(dataReader[colName].ToString() + "");
+                        }
+                        else
+                        {
+                            
+                            data[colName].Add(dataReader[colName].ToString() + "");
+                        }
+                                             
                    }
+                    i += 1;
+                    Console.WriteLine("num: " + i.ToString());
                 }
 
                 dataReader.Close();
