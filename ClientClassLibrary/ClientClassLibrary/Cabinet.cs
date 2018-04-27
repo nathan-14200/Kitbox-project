@@ -86,6 +86,7 @@ namespace ClientClassLibrary
         }
 
 
+
         public float GetPrice()
         {
             float price = 0;
