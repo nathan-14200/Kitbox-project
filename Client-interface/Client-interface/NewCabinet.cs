@@ -15,6 +15,7 @@ namespace Client_interface
     public partial class NewCabinet : Form
     {
         private string selectedWidth = "";
+        private string selectedDepth = "";
         public NewCabinet()
         {
             InitializeComponent();
@@ -22,35 +23,27 @@ namespace Client_interface
 
         private void NewCabinet_Load(object sender, EventArgs e)
         {
-            /*
-            Graphics dc = this.CreateGraphics();
-            this.Show();
-            Pen BluePen = new Pen(Color.Blue, 3);
-            dc.DrawRectangle(BluePen, 0, 0, 50, 50);
-            Pen RedPen = new Pen(Color.Red, 2);
-            dc.DrawEllipse(RedPen, 0, 50, 80, 60);
-            */
-
             //Have to us dic even though it is twice the same value because ComboBox needs a dictionary
-            widthBox.DataSource = new BindingSource(SetComboBoxValues("width"), null);
-            widthBox.DisplayMember = "Value";
-            widthBox.ValueMember = "Key";
-            depthBox.DataSource = new BindingSource(SetComboBoxValues("depth"), null);
-            depthBox.DisplayMember = "Value";
-            depthBox.ValueMember = "Key";
-
+            SetComboBoxValues(widthBox, "width");
+            SetComboBoxValues(depthBox,"depth");
         }
 
-        //car could be width or depth
-        private Dictionary<float, float> SetComboBoxValues(string car, float width = 0, float depth = 0)
+        //car is the specification you will look for in all the pieces (width or depth)
+        
+        /*
+         *  THE SEARCH WILL NEED TO BE ON THE PANNEAU SPECIFICALY NOT ALL PIECES
+         */
+        private void SetComboBoxValues(ComboBox myComboBox, string car)
         {
+            string width = this.selectedWidth;
+            string depth = this.selectedDepth;
+
             Dictionary<float, float> values = new Dictionary<float, float>();
+            List<Piece> pieces = InitComp.GetAllPieces();
 
             //No restriction and we load all possible car
-            if(width == 0 && depth == 0)
+            if (width == "" && depth == "")
             {
-                List<Piece> pieces = InitComp.GetAllPieces();
-
                 foreach(Piece p in pieces)
                 {
                     float t = p.GetAttribute<float>(car) ;
@@ -59,20 +52,65 @@ namespace Client_interface
                         values[t] = t;
                     }
                 }
+                myComboBox.DataSource = new BindingSource(values, null);
+                myComboBox.DisplayMember = "Value";
+                myComboBox.ValueMember = "Key";
             }
+            //The width is settled and we look for the new depths
+            else if(width != "" && depth == "")
+            {
+                float w = float.Parse(width);
+                foreach(Piece p in pieces)
+                {
+                    float t = p.GetAttribute<float>(car);
+                    float getDepth = p.GetAttribute<float>("depth");
 
-            return values;
+                    if(t == w && !values.ContainsKey(getDepth) && getDepth != 0)
+                    {
+                        values[getDepth] = getDepth;
+                    }
+                }
+
+                myComboBox.DataSource = new BindingSource(values, null);
+                myComboBox.DisplayMember = "Value";
+                myComboBox.ValueMember = "Key";
+            }
+            //The depth is settled and we look for the new widths
+            else if(width == "" && depth != "")
+            {
+                float d = float.Parse(depth);
+                foreach (Piece p in pieces)
+                {
+                    float t = p.GetAttribute<float>(car);
+                    float getWidth = p.GetAttribute<float>("width");
+                    if (t == d && !values.ContainsKey(getWidth) && getWidth != 0)
+                    {
+                        
+                        values[getWidth] = getWidth;
+                    }
+                }
+
+                myComboBox.DataSource = new BindingSource(values, null);
+                myComboBox.DisplayMember = "Value";
+                myComboBox.ValueMember = "Key";
+            } 
         }
 
 
+        //Set width and load new values for the depth comboBox (that have the same width)
         private void WidthValidate_Click(object sender, EventArgs e)
         {
-
+            string value = widthBox.Text;
+            this.selectedWidth = value;
+            SetComboBoxValues(depthBox, "depth");
         }
 
-
+        //Set the depth and load new values for the width comboBox (that have the same depth)
         private void DepthValidate_Click(object sender, EventArgs e)
         {
+            string value = depthBox.Text;
+            this.selectedDepth = value;
+            SetComboBoxValues(widthBox, "width");
 
         }
 
@@ -92,11 +130,21 @@ namespace Client_interface
             nextForm.ShowDialog();
             this.Close();
         }
-
+        //??
         private void widthBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             selectedWidth = (string)comboBox.SelectedText;
+        }
+
+
+        //Re initialize the selected width and depth value and combBox
+        private void clear_Click(object sender, EventArgs e)
+        {
+            this.selectedWidth = "";
+            this.selectedDepth = "";
+            SetComboBoxValues(widthBox, "width");
+            SetComboBoxValues(depthBox, "depth");
         }
     }
 }

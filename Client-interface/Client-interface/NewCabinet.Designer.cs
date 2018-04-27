@@ -38,6 +38,7 @@
             this.widthLabel = new System.Windows.Forms.Label();
             this.depthLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // WidthValidate
@@ -93,7 +94,7 @@
             this.cancel.AutoSize = true;
             this.cancel.Location = new System.Drawing.Point(35, 549);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(94, 35);
+            this.cancel.Size = new System.Drawing.Size(108, 35);
             this.cancel.TabIndex = 9;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -102,7 +103,7 @@
             // newBox
             // 
             this.newBox.AutoSize = true;
-            this.newBox.Location = new System.Drawing.Point(152, 550);
+            this.newBox.Location = new System.Drawing.Point(653, 549);
             this.newBox.Name = "newBox";
             this.newBox.Size = new System.Drawing.Size(108, 35);
             this.newBox.TabIndex = 10;
@@ -138,11 +139,22 @@
             this.textBox1.Size = new System.Drawing.Size(703, 152);
             this.textBox1.TabIndex = 13;
             // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(149, 549);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(108, 35);
+            this.clear.TabIndex = 14;
+            this.clear.Text = "clear";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // NewCabinet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 625);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.depthLabel);
             this.Controls.Add(this.widthLabel);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.Label widthLabel;
         private System.Windows.Forms.Label depthLabel;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button clear;
     }
 }
