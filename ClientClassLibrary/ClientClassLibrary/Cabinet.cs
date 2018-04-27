@@ -11,8 +11,10 @@ namespace ClientClassLibrary
         private List<Box> boxComposition;
         private float width;
         private float depth;
+        private string id;
         //private double height;
         private List<Piece> composition;
+
 
         public Cabinet(float width, float depth)
         {
@@ -29,6 +31,7 @@ namespace ClientClassLibrary
         {
             return this.depth;
         }
+
 
         public float height
         {

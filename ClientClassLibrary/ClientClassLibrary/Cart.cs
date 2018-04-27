@@ -9,13 +9,9 @@ namespace ClientClassLibrary
     public class Cart
     {
         private List<Cabinet> order;
-        private string name;
-        private int number;
 
-        public Cart(string name, int number)
+        public Cart()
         {
-            this.name = name;
-            this.number = number;
             this.order = new List<Cabinet>();
         }
 
@@ -32,16 +28,6 @@ namespace ClientClassLibrary
             {
                 order.Remove(cabinet);
             }
-        }
-
-
-        public List<string> GetClientInfo()
-        {
-            List<string> info = new List<string>();
-            info.Add(name);
-            info.Add(number.ToString());
-
-            return info;
         }
 
 
