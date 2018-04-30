@@ -30,6 +30,11 @@ namespace ClientClassLibrary
             }
         }
 
+        public List<Cabinet> GetCabinets()
+        {
+            return this.order;
+        }
+
 
         public List<Piece> GetComposition()
         {
