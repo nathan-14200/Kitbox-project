@@ -80,6 +80,9 @@ namespace Client_interface
         {
             if (selectedDepth != "" && selectedWidth != "")
             {
+                //Adding the new cabinet to the cart
+                Session.Cart().AddCabinet(new Cabinet(float.Parse(selectedWidth), float.Parse(selectedDepth)));
+                
                 CabinetMenu nextForm = new CabinetMenu();
                 this.Hide();
                 nextForm.ShowDialog();

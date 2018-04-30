@@ -31,6 +31,7 @@ namespace Client_interface
             MessageBox.Show("size of allPieces: " + ClientClassLibrary.InitComp.GetAllPieces().Count().ToString());
             //Test
 
+            Session.InitCart();
             CartMenu nextForm = new CartMenu();
             this.Hide();
             nextForm.ShowDialog();

@@ -7,42 +7,24 @@ using ClientClassLibrary;
 
 namespace Client_interface
 {
-    public class Session
+    public static class Session
     {
-        private float selected_width = 0; 
-        private float selected_depth = 0;
-        private Cart myCart;
+        private static Cart myCart;
+        private static Cabinet actualCabinet;
 
-        public Session()
+        public static void InitCart()
         {
-
+            myCart = new Cart();
         }
 
-        public Cart GetCart()
+        public static Cart Cart()
         {
-            return this.myCart;
+            return myCart;
         }
 
-        public void SetWidth(float value)
+        public static void SetActualCabinet(Cabinet cabinet)
         {
-            this.selected_width = value;
-        }
-
-        public float GetWidth()
-        {
-            return this.selected_width;
-        }
-
-        public void SetDepth(float value)
-        {
-            this.selected_depth = value;
-        }
-
-        public float GetDepth()
-        {
-            return this.selected_depth;
+            actualCabinet = cabinet;
         }
     }
-
-    
 }
