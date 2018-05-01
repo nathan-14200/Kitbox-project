@@ -8,8 +8,8 @@ namespace ClientClassLibrary
 {
     public class Adder
     {
-        //The key is the name of the adder and the value is a list of the pieces
-        private static Dictionary<string, List<Piece>> possibleAdder = new Dictionary<string, List<Piece>>();
+        //The key is the name of the adder and the value is a dictionary of pieces
+        private static Dictionary<string, Dictionary<Piece, int>> possibleAdder = new Dictionary<string, Dictionary<Piece, int>>();
         //ajouter les adder + leurs pièces
 
         //Gives a list of possible adder
@@ -19,17 +19,16 @@ namespace ClientClassLibrary
             return keyList;
         }
 
-        //Get the list of pieces of a specific adder
-        public static List<Piece> GetPieces(string adder)
+        //Get the dictionary of pieces of a specific adder
+        public static Dictionary<Piece, int> GetPieces(string adder)
         {
-            List<Piece> pieces = new List<Piece>();
+            Dictionary<Piece, int> pieces = new Dictionary<Piece, int>();
 
-            foreach (KeyValuePair < string, List<Piece>> Adder in possibleAdder)
+            foreach(KeyValuePair <string, Dictionary<Piece, int>> Adder in possibleAdder)
             {
                 if (Adder.Key == adder)
                 {
-                    pieces = Adder.Value;
-                    return pieces;
+                    return Adder.Value;
                 }
             }
             //pieces will be empty

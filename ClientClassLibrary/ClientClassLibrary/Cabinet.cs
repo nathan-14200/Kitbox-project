@@ -12,6 +12,8 @@ namespace ClientClassLibrary
         private float width;
         private float depth;
         private string id;
+        //value of the heighest Corniere
+        private float maxHeight = 375;
         //private double height;
         private List<Piece> composition;
 
@@ -20,6 +22,8 @@ namespace ClientClassLibrary
         {
             this.width = width;
             this.depth = depth;
+            
+            
         }
 
         public float GetWidth()
@@ -39,16 +43,16 @@ namespace ClientClassLibrary
             set { this.height = value; }
         }
 
-        public int AddBox(Box box)
+        public int AddBox(float h, float width, float depth, string colour, bool hasAdder)
         {
             //Has to check if not more than 7 boxes and certain height limit.
             //Error message if not added?
             
-            float h = box.getHeight() + height;
-            if(boxComposition.Count < 7)  // + height limit
+            float height = h + 4 + this.height;
+            if(boxComposition.Count < 7 && maxHeight > height)  // + height limit
             {
-                boxComposition.Add(box);
-                height += box.getHeight();
+                boxComposition.Add(new Box(height, width, depth, colour, hasAdder));
+                this.height += boxComposition[boxComposition.Count - 1].getHeight();
 
                 return 0;
             }
