@@ -25,6 +25,8 @@ namespace Client_interface
 
         private void NewBox_Load(object sender, EventArgs e)
         {
+            SetComboBox(heightBox, "height");
+            SetComboBox(colourBox, "colour");
 
         }
 
@@ -33,17 +35,31 @@ namespace Client_interface
             List<string> values = new List<string>();
             List<Piece> allPieces = InitComp.GetAllPieces();
 
-            if(hasAdder == false && car != "adder")
+            if (hasAdder == false && car == "height")
             {
-                foreach(Piece piece in allPieces)
+                foreach (Piece piece in allPieces)
                 {
+                    //We use Tasseau to get the possible height
                     string s = piece.GetAttribute<string>(car);
-                    if(piece.GetName() == "Tasseau" && !values.Contains(s))
+                    if (piece.GetName() == "Tasseau" && !values.Contains(s))
                     {
                         values.Add(s);
                     }
                 }
             }
+            else if (car == "colour")
+            {
+                foreach (Piece piece in allPieces)
+                {
+                    string c = piece.GetAttribute<string>(car);
+                    string[] name = piece.GetName().Split();
+                    if (!values.Contains(c) && name[0] == "Panneau")
+                    {
+                        values.Add(c);
+                    }
+                }
+            }
+            //car = Adder
             else
             {
 
