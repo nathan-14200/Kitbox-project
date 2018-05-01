@@ -53,6 +53,7 @@
             this.NewBox.TabIndex = 1;
             this.NewBox.Text = "NewBox";
             this.NewBox.UseVisualStyleBackColor = true;
+            this.NewBox.Click += new System.EventHandler(this.NewBox_Click);
             // 
             // Validate
             // 

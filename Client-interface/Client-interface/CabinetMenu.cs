@@ -32,5 +32,13 @@ namespace Client_interface
             {
             }
         }
+
+        private void NewBox_Click(object sender, EventArgs e)
+        {
+            NewBox nextForm = new NewBox();
+            this.Hide();
+            nextForm.ShowDialog();
+            this.Close();
+        }
     }
 }

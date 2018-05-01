@@ -95,6 +95,9 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewBox.resx">
+      <DependentUpon>NewBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewCabinet.resx">
       <DependentUpon>NewCabinet.cs</DependentUpon>
     </EmbeddedResource>

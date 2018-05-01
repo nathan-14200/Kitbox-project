@@ -57,7 +57,7 @@ namespace Client_interface
             }               
         }
        
-
+        
         //Set width and load new values for the depth comboBox (that have the same width)
         private void WidthValidate_Click(object sender, EventArgs e)
         {
@@ -72,7 +72,6 @@ namespace Client_interface
             string value = depthBox.Text;
             this.selectedDepth = value;
             depthBox.Enabled = false;
-
         }
 
         //Next window
