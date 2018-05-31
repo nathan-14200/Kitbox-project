@@ -7,24 +7,62 @@ namespace StoreKeeper
     {
         private static List<string> menuItems = new List<string>()
             {
-                "a",
-                "b",
+                "Search orders",
+                "See state of orders",
+                "See state of stock",
+                "Print orders",
+                "Make orders to suppliers",
                 "Exit"
             };
 
         public static void Main(string[] args)
         {
+            bool running = true;
+
             List<string> menuText = new List<string>();
             for(int i = 0; i < menuItems.Count; i++)
             {
-                menuText.Add(String.Format("[{0}]    {1}", i, menuItems[i]));
+                menuText.Add(String.Format("[{0}]    {1}", i+1 , menuItems[i]));
             }
 
-            string choice = Menuprint(menuText);
+            while (running)
+            {
+                string choice = Menuprint(menuText);
+
+                Console.Clear();
+
+                switch (choice)
+                {
+                    case "1":
+                        //fct 1
+                        break;
+                    case "2":
+                        //fct 2
+                        break;
+                    case "3":
+                        //fct 3
+                        break;
+                    case "4":
+                        //fct 4
+                        break;
+                    case "5":
+                        //fct 5
+                        break;
+                    case "6":
+                        Console.WriteLine("[Exit]");
+                        running = false;
+                        break;
+                }
+            }
+
+            Environment.Exit(0);
         }
 
         public static string Menuprint(List<string> menu)
         {
+            /*
+             *  Display the menu
+             */
             foreach(string item in menu)
             {
                 Console.WriteLine(item);
