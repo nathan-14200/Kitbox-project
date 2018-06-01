@@ -42,5 +42,10 @@ namespace StoreKeeper
             this.Need = need;
             this.Complete = 0;
         }
+
+        public override string ToString()
+        {
+            return String.Format("quantity: {0}/{1}", this.Quantity, this.Need);
+        }
     }
 }
