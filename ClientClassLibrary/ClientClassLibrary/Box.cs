@@ -14,7 +14,7 @@ namespace ClientClassLibrary
         private string colour;
         private bool HasAdder;
         private Dictionary<Piece, int> composition = new Dictionary<Piece, int>();
-        private string adder;
+        private Adder adder;
 
 
         public Box(float height, float width, float depth, string colour, bool hasAdder)
@@ -33,7 +33,7 @@ namespace ClientClassLibrary
             // Has to add the minimal pieces with the ones of the Adder
             Dictionary<Piece, int> comp = this.composition;
 
-            Dictionary<Piece, int> adderComp = Adder.GetPieces(adder);
+            Dictionary<Piece, int> adderComp = adder.GetComp();
             foreach(var item in adderComp)
             {
                 comp.Add(item.Key, item.Value);
@@ -41,15 +41,15 @@ namespace ClientClassLibrary
             return comp;
         }
 
-        public void SetAdder(string adder)
+
+        //Create the adder of the box
+        public void SetAdder(string adderName, string colour)
         {
-            //Check if adder in our list before accepting a change  
-            List<string> possibleAdder = Adder.GetAdder();
-            if (possibleAdder.Contains(adder))
-            {
-                this.adder = adder;
-            }                
+            Adder add = new Adder(adderName, this.height, this.width, colour);
+            this.adder = add;            
         }
+
+
 
         public float getHeight()
         {

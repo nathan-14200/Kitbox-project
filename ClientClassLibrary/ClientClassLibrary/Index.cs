@@ -44,7 +44,7 @@ namespace ClientClassLibrary
             return "";
         }
 
-        private static void SetList()
+        private static void SetList()x
         {
             if(colours.Count == 0)
             {

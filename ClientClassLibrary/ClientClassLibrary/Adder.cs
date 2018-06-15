@@ -27,35 +27,28 @@ namespace ClientClassLibrary
 
         private static Dictionary<Piece, int> SetComp(string name, string colour, float width, float height)
         {
-            Dictionary<Piece, int> d = new Dictionary<Piece, int>();
+            Dictionary<Piece, int> comp = new Dictionary<Piece, int>();
 
             foreach(var adder in possibleAdder)
-            {
+            {   //nom du adder en anglais
                 if(adder.Key == name)
                 {
                     Dictionary<string, int> rawComp = adder.Value;
+                    List<Piece> allPieces = InitComp.GetAllPieces();
 
-                    foreach(var piece in rawComp)
+                    foreach(Piece piece in allPieces)
                     {
-                        //Making the id string to find the piece in the db
-                        string indexP = Index.GetPieceIndex(piece.Key);
-                        string h = height.ToString();
-                        string w = width.ToString();
-                        string indexC = Index.GetColourIndex(colour);
-
-                        string id = indexP + h + w + indexC;
-
-                        Piece p = InitComp.GetPieceByID(id);
-                        //p name = "" if failed to find the id
-                        if(p.GetName() != "")
+                        foreach(var p in rawComp)
                         {
-                            d[p] = piece.Value;
+                            if(piece.GetName() == p.Key && piece.GetColour() == colour && piece.GetHeight() == height && piece.GetWidth() == width)
+                            {
+                                comp[piece] = p.Value;
+                            }
                         }
                     }
-                    break;
                 }
             }
-            return d;
+            return comp;
         }
 
 
@@ -80,6 +73,14 @@ namespace ClientClassLibrary
         {
             if(possibleAdder.Count() == 0)
             {
+                //hard code du Adder porte
+                //les clés de pieceList sont les noms des pièces
+                Dictionary<string, int> pieceList = new Dictionary<string, int>();
+                pieceList["Porte"] = 2;
+                pieceList["Coupel"] = 2;
+                possibleAdder["Door"] = pieceList;
+
+                /*
                 List<Piece> allPiece = InitComp.GetAllPieces();
                 foreach(Piece piece in allPiece)
                 {
@@ -100,6 +101,7 @@ namespace ClientClassLibrary
                         Dictionary<Piece, int> p = new Dictionary<Piece, int>();
                     }
                 }
+                */
             }
         }
 
