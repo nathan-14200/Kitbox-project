@@ -67,6 +67,12 @@ namespace ClientClassLibrary
         }
 
 
+        public Dictionary<string, Dictionary<string, int>> GetPossibleAdder()
+        {
+            return possibleAdder;
+        }
+
+
         //Adding by hand all possible Adder and their piece (to be updated?)
         //Should have a list of list of all pieces for each Adder
         private static void SetAdder()
@@ -77,7 +83,6 @@ namespace ClientClassLibrary
                 //les clés de pieceList sont les noms des pièces
                 Dictionary<string, int> pieceList = new Dictionary<string, int>();
                 pieceList["Porte"] = 2;
-                pieceList["Coupel"] = 2;
                 possibleAdder["Door"] = pieceList;
 
                 /*
