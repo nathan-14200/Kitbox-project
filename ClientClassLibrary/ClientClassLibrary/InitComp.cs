@@ -52,6 +52,22 @@ namespace ClientClassLibrary
             return allPieces;
         }
 
+        //Return the given piece or empty if not found
+        public static Piece GetPieceByID(string id)
+        {
+            List<Piece> allPiece = GetAllPieces();
+            foreach(Piece piece in allPiece)
+            {
+                if(piece.GetID() == id)
+                {
+                    return piece;
+                }
+            }
+
+            Piece notFind = new Piece("", "", 0, 0, 0, 0, "", false);
+            return notFind;
+        }
+
 
         
         public static void UpdateDB(String CmdString, Dictionary<String,int> Mod)

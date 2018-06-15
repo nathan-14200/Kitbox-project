@@ -46,6 +46,7 @@
     <Compile Include="Cart.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="DatabaseConnect.cs" />
+    <Compile Include="Index.cs" />
     <Compile Include="InitComp.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
