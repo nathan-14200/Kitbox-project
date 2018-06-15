@@ -17,6 +17,7 @@ namespace Client_interface
         private string selectedColour = "";
         private Boolean hasAdder = false;
         private string selectedAdder = "";
+        private string selectedAdderColour = "";
 
         public NewBox()
         {    
@@ -27,6 +28,7 @@ namespace Client_interface
         {
             SetComboBox(heightBox, "height");
             SetComboBox(colourBox, "colour");
+            SetComboBox(adderBox, "adder");
 
         }
 
@@ -60,11 +62,45 @@ namespace Client_interface
                 }
             }
             //car = Adder
-            else
+            else if(car == "adder")
             {
-
+                //Get all possible adders
+                List<string> adders = Adder.GetAdder();
+                foreach(string adder in adders)
+                {
+                    values.Add(adder);
+                }
             }
+            /*
+            else if (car == "adderColour")
+            {
+                foreach(var element in Adder.GetPossibleAdder())
+                {
+                    if(element.Key == selectedAdder)
+                    {
+                        Dictionary<string, int> adderComp = element.Value;
+                        break;
+                    }
+                }
 
+                //We assume that each piece have the same colour and available colour so doesn't matter with piece we choose
+                foreach(var p in adderComp)
+                {
+                    string name = p.Key;
+                    break;
+                }
+
+                foreach(Piece piece in allPieces)
+                {
+                    string pieceColour = piece.GetColour();
+                    if(piece.GetName() == name && !values.Contains(pieceColour)
+                    {
+                        values.Add(pieceColour);
+                    }
+                }
+                 
+            }
+            */
             foreach (string str in values)
             {
                 myComboBox.Items.Add(str);
@@ -91,7 +127,16 @@ namespace Client_interface
         {
             ComboBox comboBox = (ComboBox)sender;
             selectedAdder = (string)comboBox.SelectedText;
+            SetComboBox(adderColour, "adderColour");
         }
+
+
+        private void adderColour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            selectedAdderColour = (string)comboBox.SelectedText;
+        }
+
 
         private void Adder_CheckedChanged(object sender, EventArgs e)
         {
@@ -101,16 +146,6 @@ namespace Client_interface
         }
 
 
-        private void tabControl_Edit(object sender, EventArgs e)
-        {
-            TabControl TabType = (TabControl)sender;
-            string adder = selectedAdder;
-            //Get the right dic from class adder
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

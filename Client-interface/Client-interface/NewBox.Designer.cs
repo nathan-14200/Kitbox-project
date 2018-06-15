@@ -39,11 +39,8 @@ namespace Client_interface
             this.adderBox = new System.Windows.Forms.ComboBox();
             this.adderLabel = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.adderColour = new System.Windows.Forms.ComboBox();
+            this.adderColourlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AdderCheckBox
@@ -121,53 +118,31 @@ namespace Client_interface
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // menuStrip1
+            // adderColour
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 9;
-            this.menuStrip1.Text = "menuStrip1";
+            this.adderColour.FormattingEnabled = true;
+            this.adderColour.Location = new System.Drawing.Point(38, 268);
+            this.adderColour.Name = "adderColour";
+            this.adderColour.Size = new System.Drawing.Size(121, 33);
+            this.adderColour.TabIndex = 8;
+            this.adderColour.SelectedIndexChanged += new System.EventHandler(this.adderColour_SelectedIndexChanged);
             // 
-            // tabControl1
+            // adderColourlabel
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(360, 51);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(345, 274);
-            this.tabControl1.TabIndex = 10;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(329, 227);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(8, 39);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(184, 53);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.adderColourlabel.AutoSize = true;
+            this.adderColourlabel.Location = new System.Drawing.Point(171, 268);
+            this.adderColourlabel.Name = "adderColourlabel";
+            this.adderColourlabel.Size = new System.Drawing.Size(134, 25);
+            this.adderColourlabel.TabIndex = 9;
+            this.adderColourlabel.Text = "Adder colour";
             // 
             // NewBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.adderColourlabel);
+            this.Controls.Add(this.adderColour);
             this.Controls.Add(this.adderLabel);
             this.Controls.Add(this.adderBox);
             this.Controls.Add(this.colour);
@@ -175,11 +150,9 @@ namespace Client_interface
             this.Controls.Add(this.height);
             this.Controls.Add(this.heightBox);
             this.Controls.Add(this.AdderCheckBox);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "NewBox";
             this.Text = "NewBox";
             this.Load += new System.EventHandler(this.NewBox_Load);
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,9 +170,7 @@ namespace Client_interface
         private System.Windows.Forms.ComboBox adderBox;
         private System.Windows.Forms.Label adderLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox adderColour;
+        private System.Windows.Forms.Label adderColourlabel;
     }
 }
