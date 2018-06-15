@@ -143,6 +143,7 @@ namespace Client_interface
             CheckBox adderCheck = (CheckBox)sender;
             this.hasAdder = adderCheck.Checked;
             adderBox.Enabled = hasAdder;
+            adderColour.Enabled = hasAdder;
         }
 
 
