@@ -104,19 +104,5 @@ namespace ClientClassLibrary
 
             return myBox;
         }
-
-
-        public double GetPrice()
-        {
-            double price = 0;
-
-            foreach (var item in this.composition)
-            {
-                price += item.Key.GetPrice() * item.Value;
-            }
-
-            return price;
-        }
-
     }
 }

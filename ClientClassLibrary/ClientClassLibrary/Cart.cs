@@ -9,6 +9,7 @@ namespace ClientClassLibrary
     public class Cart
     {
         private List<Cabinet> order;
+        private Dictionary<Piece, int> cartComp = new Dictionary<Piece, int>();
 
         public Cart()
         {
@@ -36,25 +37,37 @@ namespace ClientClassLibrary
         }
 
 
-        public List<Piece> GetComposition()
+        public Dictionary<Piece, int> GetComposition()
         {
-            List<Piece> total = new List<Piece>();
-
-            foreach(Cabinet cabinet in order)
+            if(cartComp.Count == 0)
             {
-                total.AddRange(cabinet.GetComposition());
+                foreach (Cabinet cabinet in order)
+                {
+                    Dictionary<Piece, int> cabinetComp = cabinet.GetComposition();
+                    foreach (var p in cabinetComp)
+                    {
+                        if (!cartComp.ContainsKey(p.Key))
+                        {
+                            cartComp[p.Key] = p.Value;
+                        }
+                        else
+                        {
+                            cartComp[p.Key] += p.Value;
+                        }
+                    }
+                }
             }
 
-            return total;
+            return cartComp;
         }
 
         public float GetPrice()
         {
             float price = 0;
 
-            foreach(Piece piece in GetComposition())
+            foreach(var p in GetComposition())
             {
-                price += piece.GetPrice();
+                price += p.Key.GetPrice() * p.Value;
             }
 
             return price;

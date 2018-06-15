@@ -15,7 +15,7 @@ namespace ClientClassLibrary
         //value of the heighest Corniere
         private float maxHeight = 375;
         //private double height;
-        private List<Piece> composition;
+        private Dictionary<Piece, int> composition;
 
 
         public Cabinet(float width, float depth)
@@ -78,29 +78,26 @@ namespace ClientClassLibrary
         }
 
 
-        public List<Piece> GetComposition()
+        public Dictionary<Piece, int> GetComposition()
         {
-            List<Piece> comp = composition;
+            composition = new Dictionary<Piece, int>();
 
             foreach(Box box in boxComposition)
             {
-                comp.AddRange(box.GetComposition());
+                Dictionary<Piece, int> boxComp = box.GetComposition();
+                foreach(var p in boxComp)
+                {
+                    if(!composition.ContainsKey(p.Key))
+                    {
+                        composition[p.Key] = p.Value;
+                    }
+                    else
+                    {
+                        composition[p.Key] += p.Value; 
+                    }
+                }
             }
-            return comp;
-        }
-
-
-
-        public float GetPrice()
-        {
-            float price = 0;
-            List<Piece> comp = GetComposition();
-  
-            foreach(Piece piece in comp)
-            {
-                price += piece.GetPrice();
-            }
-            return price;
+            return composition;
         }
     }
 }
