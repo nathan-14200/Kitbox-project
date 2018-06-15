@@ -34,18 +34,26 @@ namespace StoreKeeper
                 switch (choice)
                 {
                     case "1":
+                        // show all the orders
                         //fct 1
                         break;
                     case "2":
+                        // ask orders
+                        // show actual state of order
                         //fct 2
                         break;
                     case "3":
+                        // show actual state of stock
                         //fct 3
                         break;
                     case "4":
+                        // ask orders
+                        // return txt file of orders "Valerian"
                         //fct 4
                         break;
                     case "5":
+                        // return txt file orders to supplier
+                        // update stock
                         //fct 5
                         break;
                     case "6":
