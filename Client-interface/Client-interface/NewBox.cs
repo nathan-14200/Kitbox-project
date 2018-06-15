@@ -100,6 +100,17 @@ namespace Client_interface
             adderBox.Enabled = hasAdder;
         }
 
-        
+
+        private void tabControl_Edit(object sender, EventArgs e)
+        {
+            TabControl TabType = (TabControl)sender;
+            string adder = selectedAdder;
+            //Get the right dic from class adder
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
