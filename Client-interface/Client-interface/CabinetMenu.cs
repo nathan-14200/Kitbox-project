@@ -33,7 +33,7 @@ namespace Client_interface
                 foreach (Box box in currentCabinet.GetBoxComposition())
                 {
                     grid.Rows.Add();
-                    grid.Rows[i].Cells[0].Value = i.ToString();
+                    grid.Rows[i].Cells[0].Value = (i+1).ToString();
                     grid.Rows[i].Cells[1].Value = box.GetHeight().ToString();
                     grid.Rows[i].Cells[2].Value = box.GetColour();
                     grid.Rows[i].Cells[3].Value = box.GetAdderName();
