@@ -29,7 +29,7 @@ namespace StoreKeeper
             connectionString = String.Format("server = {0}; database = {1}; uid = {2}; SslMode=none;", server, database, uid);
 
             connection = new MySqlConnection(connectionString);
-            Console.WriteLine("[TEST] DB - Initialize");
+            Console.WriteLine("[TEST] DB Initialize");
         }
 
         private bool OpenConnection()

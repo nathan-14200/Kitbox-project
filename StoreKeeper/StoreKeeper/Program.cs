@@ -36,8 +36,8 @@ namespace StoreKeeper
                     case "1":
                         // show all the orders
                         //fct 1
-                        Order ord = new Order();
-                        ord.Search();
+                        Master master = new Master();
+                        master.ShowOrders();
                         break;
                     case "2":
                         // ask orders
