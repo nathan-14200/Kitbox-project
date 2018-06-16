@@ -8,7 +8,7 @@ namespace ClientClassLibrary
 {
     public class Cabinet
     {
-        private List<Box> boxComposition;
+        private List<Box> boxComposition = new List<Box>();
         private float width;
         private float depth;
         private string id;
@@ -48,8 +48,8 @@ namespace ClientClassLibrary
             //Has to check if not more than 7 boxes and certain height limit.
             //Error message if not added?
             
-            float height = box.GetHeight() + 4 + this.height;
-            if(boxComposition.Count < 7 && maxHeight > height)  // + height limit
+            float height = box.GetHeight() + float.Parse("4") + this.height;
+            if(boxComposition.Count() < 7 && maxHeight > height)  // + height limit
             {
                 boxComposition.Add(box);
                 this.height += box.GetHeight();
