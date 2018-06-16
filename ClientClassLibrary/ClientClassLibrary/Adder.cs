@@ -67,7 +67,7 @@ namespace ClientClassLibrary
         }
 
 
-        public Dictionary<string, Dictionary<string, int>> GetPossibleAdder()
+        public static Dictionary<string, Dictionary<string, int>> GetPossibleAdder()
         {
             return possibleAdder;
         }
