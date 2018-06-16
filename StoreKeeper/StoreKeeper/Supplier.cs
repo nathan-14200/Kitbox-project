@@ -9,9 +9,9 @@ namespace StoreKeeper
     class Supplier
     {
         private string name;
-        private Dictionary<string, Tuple<int, int>> catalog;
+        private Dictionary<string, Tuple<double, int>> catalog;
 
-        Supplier(string Name, Dictionary<string, Tuple<int, int>> Catalog)
+        public Supplier(string Name, Dictionary<string, Tuple<double, int>> Catalog)
         {
             this.name = Name;
             this.catalog = Catalog;
@@ -23,17 +23,19 @@ namespace StoreKeeper
             set { this.name = value; }
         }
 
-        public Dictionary<string, Tuple<int,int>> Catalog
+        public Dictionary<string, Tuple<double,int>> Catalog
         {
             get { return this.catalog; }
         }
 
-        public int RatioPiece(string piece)
+        public bool Contains(string code)
         {
-            int price = this.catalog[piece].Item1;
-            int delay = this.catalog[piece].Item2;
+            return this.catalog.ContainsKey(code);
+        }
 
-            return price * delay;
+        public double Ratio(string code)
+        {
+            return this.catalog[code].Item1 * this.catalog[code].Item2; // ERROR HERE
         }
     }
 }

@@ -5,6 +5,8 @@ namespace StoreKeeper
 {
     class MainClass
     {
+        private static Master master = new Master();
+
         private static List<string> menuItems = new List<string>()
             {
                 "Search orders",
@@ -53,7 +55,7 @@ namespace StoreKeeper
                     case "5":
                         // return txt file orders to supplier
                         // update stock
-                        //fct 5
+                        MakeCmd();
                         break;
                     case "6":
                         Console.WriteLine("[Exit]");
@@ -92,7 +94,7 @@ namespace StoreKeeper
 
         public static void ShowOrders()
         {
-            Master master = new Master();
+            master.Init();
             master.ShowOrders();
         }
 
@@ -100,14 +102,22 @@ namespace StoreKeeper
         {
             int i = AskOrder();
 
-            Master master = new Master();
+            master.Init();
             master.ShowStateOrder(i);
         }
 
         public static void ShowStock()
         {
-            Master master = new Master();
+            master.Init();
             master.ShowStock();
+        }
+
+        public static void MakeCmd()
+        {
+            master.Init();
+            Dictionary<string, Tuple<string, int, double>> cmd = master.CommandStock();
+            master.ShowCmd(cmd);
+            master.PrintCmd(cmd);
         }
     }
 }
