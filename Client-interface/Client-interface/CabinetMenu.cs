@@ -16,29 +16,36 @@ namespace Client_interface
         public CabinetMenu()
         {
             InitializeComponent();
+            SetDataGrid(dataGridView1);
+            test.Text = dataGridView1.ColumnCount.ToString();
             
         }
 
-        /*
-        private void SetDataGrid(object sender, EventArgs e)
+        
+        private void SetDataGrid(object sender)
         {
-            DataGrid dataGrid = (DataGrid)sender;
+            DataGridView grid = (DataGridView)sender;
             Cabinet currentCabinet = Session.GetCabinet();
-
-            int index = 0;
-
-            foreach(Box box in currentCabinet.GetBoxComposition())
+            grid.ReadOnly = false;
+            int i = 0;
+            if(currentCabinet.GetBoxComposition().Count() > 0)
             {
-               DataGrid[i,0] = i.ToString();
-               DataGrid[i,1] = box.GetHeight().ToString();
-               DataGrid[i,2] = box.GetColour();
-               DataGrid[i,3] = box.GetAdderName();
-               DataGrid[i,4] = box.GetAdderColour();
+                foreach (Box box in currentCabinet.GetBoxComposition())
+                {
+                    grid.Rows.Add();
+                    grid.Rows[i].Cells[0].Value = i.ToString();
+                    grid.Rows[i].Cells[1].Value = box.GetHeight().ToString();
+                    grid.Rows[i].Cells[2].Value = box.GetColour();
+                    grid.Rows[i].Cells[3].Value = box.GetAdderName();
+                    grid.Rows[i].Cells[4].Value = box.GetAdderColour();
 
-               i +=1;
+                    i += 1;
+                }
             }
+
+            grid.Refresh();
+            grid.ReadOnly = true;
         }
-        */
 
         private void Cancel_Click(object sender, EventArgs e)
         {
@@ -68,5 +75,6 @@ namespace Client_interface
         {
 
         }
+
     }
 }
