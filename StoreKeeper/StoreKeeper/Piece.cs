@@ -11,12 +11,15 @@ namespace StoreKeeper
         private string code;
         private int quantity;
         private int quantity_min;
+        private bool stock;
 
         public Piece(string Code, int Quantity, int mQuantity)
         {
             this.code = Code;
             this.quantity = Quantity;
             this.quantity_min = mQuantity;
+
+            this.stock = this.quantity > this.quantity_min;
         }
 
         public int Quantity
@@ -33,6 +36,12 @@ namespace StoreKeeper
         public string Code
         {
             get { return this.code; }
+        }
+
+        public bool Stock
+        {
+            get { return this.stock; }
+            set { this.stock = this.quantity > this.quantity_min; }
         }
 
         public override string ToString()

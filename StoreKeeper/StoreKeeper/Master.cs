@@ -84,9 +84,17 @@ namespace StoreKeeper
 
         public void ShowStock()
         {
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "pieces in stock", Environment.NewLine));
             foreach(Piece piece in this.stock)
             {
-                Console.WriteLine(piece);
+                if (piece.Stock)
+                    Console.WriteLine(piece);
+            }
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "pieces to buy", Environment.NewLine));
+            foreach(Piece piece in this.stock)
+            {
+                if (!piece.Stock)
+                    Console.WriteLine(piece);
             }
         }
 

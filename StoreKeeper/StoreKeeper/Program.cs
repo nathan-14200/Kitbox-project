@@ -9,8 +9,8 @@ namespace StoreKeeper
             {
                 "Search orders",
                 "See state of orders",
-                "See state of stock",
                 "Print orders",
+                "See state of stock",
                 "Make orders to suppliers",
                 "Exit"
             };
@@ -42,12 +42,12 @@ namespace StoreKeeper
                         ShowState();
                         break;
                     case "3":
-                        // show actual state of stock
-                        ShowStock();
+                        // return txt file of orders "Valerian"
+                        //fct 3
                         break;
                     case "4":
-                        // return txt file of orders "Valerian"
-                        //fct 4
+                        // show actual state of stock
+                        ShowStock();
                         break;
                     case "5":
                         // return txt file orders to supplier
