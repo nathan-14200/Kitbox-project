@@ -70,15 +70,16 @@ namespace Client_interface
                 {
                     values.Add(adder);
                 }
-            }
-            /*
+            }            
             else if (car == "adderColour")
             {
-                foreach(var element in Adder.GetPossibleAdder())
+                Dictionary<string, int> adderComp = new Dictionary<string, int>();
+
+                foreach (var element in Adder.GetPossibleAdder())
                 {
                     if(element.Key == selectedAdder)
                     {
-                        Dictionary<string, int> adderComp = element.Value;
+                        adderComp = element.Value;
                         break;
                     }
                 }
@@ -87,20 +88,20 @@ namespace Client_interface
                 foreach(var p in adderComp)
                 {
                     string name = p.Key;
-                    break;
+                    break;                    
                 }
-
+                
                 foreach(Piece piece in allPieces)
                 {
                     string pieceColour = piece.GetColour();
-                    if(piece.GetName() == name && !values.Contains(pieceColour)
+                    if(piece.GetName() == name && !values.Contains(pieceColour))
                     {
                         values.Add(pieceColour);
                     }
                 }
                  
             }
-            */
+            
             foreach (string str in values)
             {
                 myComboBox.Items.Add(str);
