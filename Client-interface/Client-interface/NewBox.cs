@@ -195,12 +195,15 @@ namespace Client_interface
                 nextform.ShowDialog();
                 this.Close();
             }
+            else
+            {
+                //load the CabinetMenu
+                CabinetMenu nextForm = new CabinetMenu();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
             
-            //load the CabinetMenu
-            CabinetMenu nextForm = new CabinetMenu();
-            this.Hide();
-            nextForm.ShowDialog();
-            this.Close();
         }
     }
 }
