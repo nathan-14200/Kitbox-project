@@ -39,10 +39,11 @@ namespace StoreKeeper
                         break;
                     case "2":
                         // show actual state of order
+                        ShowOrders();
                         ShowState();
                         break;
                     case "3":
-                        // return txt file of orders "Valerian"
+                        // return txt file of orders 
                         //fct 3
                         break;
                     case "4":
@@ -69,6 +70,8 @@ namespace StoreKeeper
             /*
              *  Display the menu
              */
+
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "Menu", Environment.NewLine));
             foreach (string item in menu)
             {
                 Console.WriteLine(item);
