@@ -34,6 +34,16 @@ namespace StoreKeeper
             set { this.complete = this.CompleteUpdate(); }
         }
 
+        public int ID
+        {
+            get { return int.Parse(this.id);  }
+        }
+
+        public Dictionary<string, Tuple<int,int>> Dictcomp
+        {
+            get { return this.components; }
+        }
+
         public bool CompleteUpdate()
         {
             foreach (string elem in this.components.Keys)
@@ -63,6 +73,26 @@ namespace StoreKeeper
             txt = txt + String.Format("{0} - {1} - {2}{3}", this.id, this.client, this.complete, Environment.NewLine);
 
             return txt;
+        }
+
+        public int Quantity(string elem)
+        {
+            if (this.Dictcomp.ContainsKey(elem))
+            {
+                return this.Dictcomp[elem].Item1 - this.Dictcomp[elem].Item2;
+            }
+            else
+                return -1;
+        }
+
+        public int TotalQuantity(string elem)
+        {
+            if (this.Dictcomp.ContainsKey(elem))
+            {
+                return this.Dictcomp[elem].Item1;
+            }
+            else
+                return -1;
         }
     }
 }

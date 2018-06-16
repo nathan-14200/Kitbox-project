@@ -35,14 +35,11 @@ namespace StoreKeeper
                 {
                     case "1":
                         // show all the orders
-                        //fct 1
-                        Master master = new Master();
-                        master.ShowOrders();
+                        ShowOrders();
                         break;
                     case "2":
-                        // ask orders
                         // show actual state of order
-                        //fct 2
+                        ShowState();
                         break;
                     case "3":
                         // show actual state of stock
@@ -83,6 +80,26 @@ namespace StoreKeeper
             Console.Clear();
 
             return userChoice;
+        }
+
+        public static int AskOrder()
+        {
+            Console.Write("ID of the orders :");
+            return int.Parse(Console.ReadLine());
+        }
+
+        public static void ShowOrders()
+        {
+            Master master = new Master();
+            master.ShowOrders();
+        }
+
+        public static void ShowState()
+        {
+            int i = AskOrder();
+
+            Master master = new Master();
+            master.ShowStateOrder(i);
         }
     }
 }

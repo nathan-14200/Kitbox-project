@@ -61,5 +61,39 @@ namespace StoreKeeper
             }
         }
 
+        public void ShowStateOrder(int i)
+        {
+            string txt = "";
+            
+            Order order = FindOrder(i);
+
+            if (order != null)
+            {
+                Dictionary<string, Tuple<int, int>> elems = order.Dictcomp;
+
+                foreach (string elem in elems.Keys)
+                {
+                    int qt = order.Quantity(elem);
+                    int qtt = order.TotalQuantity(elem);
+
+                    txt = txt + String.Format("{0} - {1}/{2} {3}", elem, qt, qtt, Environment.NewLine);
+                }
+            }
+            else { txt = "Retry"; }
+
+            Console.WriteLine(txt);
+        }
+
+        public Order FindOrder(int id)
+        {
+            foreach(Order order in this.orders)
+            {
+                if (order.ID == id)
+                    return order;
+            }
+
+            Console.WriteLine("[ERROR] Order not found");
+            return null;
+        }
     }
 }
