@@ -43,16 +43,16 @@ namespace ClientClassLibrary
             set { this.height = value; }
         }
 
-        public int AddBox(float h, float width, float depth, string colour, bool hasAdder)
+        public int AddBox(Box box)
         {
             //Has to check if not more than 7 boxes and certain height limit.
             //Error message if not added?
             
-            float height = h + 4 + this.height;
+            float height = box.GetHeight() + 4 + this.height;
             if(boxComposition.Count < 7 && maxHeight > height)  // + height limit
             {
-                boxComposition.Add(new Box(height, width, depth, colour, hasAdder));
-                this.height += boxComposition[boxComposition.Count - 1].getHeight();
+                boxComposition.Add(box);
+                this.height += box.GetHeight();
 
                 return 0;
             }
