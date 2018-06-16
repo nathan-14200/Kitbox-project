@@ -43,6 +43,7 @@ namespace Client_interface
             this.adderColourlabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.validateButton = new System.Windows.Forms.Button();
+            this.CoupelBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // AdderCheckBox
@@ -159,12 +160,26 @@ namespace Client_interface
             this.validateButton.TabIndex = 11;
             this.validateButton.Text = "Validate";
             this.validateButton.UseVisualStyleBackColor = true;
+            this.validateButton.Click += new System.EventHandler(this.validateButton_Click);
+            // 
+            // CoupelBox
+            // 
+            this.CoupelBox.AutoSize = true;
+            this.CoupelBox.Enabled = false;
+            this.CoupelBox.Location = new System.Drawing.Point(38, 320);
+            this.CoupelBox.Name = "CoupelBox";
+            this.CoupelBox.Size = new System.Drawing.Size(134, 29);
+            this.CoupelBox.TabIndex = 12;
+            this.CoupelBox.Text = "Cup pulls";
+            this.CoupelBox.UseVisualStyleBackColor = true;
+            this.CoupelBox.CheckedChanged += new System.EventHandler(this.CoupelBox_CheckedChanged);
             // 
             // NewBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CoupelBox);
             this.Controls.Add(this.validateButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.adderColourlabel);
@@ -200,5 +215,6 @@ namespace Client_interface
         private System.Windows.Forms.Label adderColourlabel;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button validateButton;
+        private System.Windows.Forms.CheckBox CoupelBox;
     }
 }

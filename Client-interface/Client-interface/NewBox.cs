@@ -16,6 +16,7 @@ namespace Client_interface
         private string selectedHeight = "";
         private string selectedColour = "";
         private Boolean hasAdder = false;
+        private Boolean hasCoupel = false;
         private string selectedAdder = "";
         private string selectedAdderColour = "";
 
@@ -29,7 +30,6 @@ namespace Client_interface
             SetComboBox(heightBox, "height");
             SetComboBox(colourBox, "colour");
             SetComboBox(adderBox, "adder");
-            SetComboBox(adderColour, "adderColour");
 
         }
 
@@ -74,39 +74,29 @@ namespace Client_interface
             }            
             else if (car == "adderColour")
             {
-                Dictionary<string, int> adderComp = new Dictionary<string, int>();
-                values.Add(Adder.GetPossibleAdder().Count().ToString());
                 
                 foreach (var element in Adder.GetPossibleAdder())
                 {
-                    values.Add(element.Key);
                     if(element.Key == selectedAdder)
                     {
-                        values.Add("in door");
-                        adderComp = element.Value;
-                        break;
-                    }
-                }
-                values.Add(adderComp.Count().ToString());
-                values.Add("hi before p");
-                //We assume that each piece have the same colour and available colour so doesn't matter with piece we choose
-                foreach(var p in adderComp)
-                {
-                    string name = p.Key;
-                    values.Add("hi");
-                    foreach (Piece piece in allPieces)
-                    {
-                        string pieceColour = piece.GetColour();
-                        if (piece.GetName() == name && !values.Contains(pieceColour))
+                        foreach(var p in element.Value)
                         {
-                            values.Add(pieceColour);
+                            //We assume that each piece have the same colour and available colour so doesn't matter with piece we choose
+                            string name = p.Key;
+
+                            foreach(Piece piece in allPieces)
+                            {
+                                string pieceColour = piece.GetColour();
+                                if (piece.GetName() == "Porte " && !values.Contains(pieceColour))
+                                {
+                                    values.Add(pieceColour);
+                                }
+                            }
+                            break;
                         }
+                        
                     }
-                    break;                    
-                }
-                
-                
-                 
+                }                              
             }
             
             foreach (string str in values)
@@ -121,20 +111,20 @@ namespace Client_interface
         private void heightBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            selectedHeight = (string)comboBox.SelectedText;
+            selectedHeight = (string)comboBox.Text;
         }
 
 
         private void colourBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            selectedColour = (string)comboBox.SelectedText;
+            selectedColour = (string)comboBox.Text;
         }
 
         private void adderBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            selectedAdder = (string)comboBox.SelectedText;
+            selectedAdder = (string)comboBox.Text;
             SetComboBox(adderColour, "adderColour");
         }
 
@@ -142,7 +132,18 @@ namespace Client_interface
         private void adderColour_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            selectedAdderColour = (string)comboBox.SelectedText;
+            selectedAdderColour = (string)comboBox.Text;
+
+            if (selectedAdderColour == "Verre")
+            {
+                CoupelBox.Enabled = false;
+                CoupelBox.Checked = false;
+                this.hasCoupel = false;
+            }
+            else
+            {
+                CoupelBox.Enabled = true;
+            }
         }
 
 
@@ -168,6 +169,31 @@ namespace Client_interface
             else if (delete == DialogResult.No)
             {
             }
+        }
+
+        private void CoupelBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cupBox = (CheckBox)sender;
+            this.hasCoupel = cupBox.Checked;
+        }
+
+        private void validateButton_Click(object sender, EventArgs e)
+        {
+            //create the box
+            Cabinet currentCab = Session.GetCabinet();
+            Box newBox = new Box(float.Parse(selectedHeight), currentCab.GetWidth(), currentCab.GetDepth(), selectedColour, hasAdder);
+            if(hasAdder == true)
+            {
+                newBox.SetAdder(selectedAdder, selectedAdderColour);
+            }
+
+            Session.GetCabinet().AddBox(newBox);
+
+            //load the CabinetMenu
+            CabinetMenu nextForm = new CabinetMenu();
+            this.Hide();
+            nextForm.ShowDialog();
+            this.Close();
         }
     }
 }

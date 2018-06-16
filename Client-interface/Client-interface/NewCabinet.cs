@@ -84,7 +84,7 @@ namespace Client_interface
                 //Adding the new cabinet to the cart
                 myCart.AddCabinet(new Cabinet(float.Parse(selectedWidth), float.Parse(selectedDepth)));
 
-                //Define the actual Cabinet we are working on for easy access
+                //Define the actual Cabinet we are working on for an easy access
                 Session.SetActualCabinet(myCart.GetCabinets()[myCart.GetCabinets().Count - 1]);
                 CabinetMenu nextForm = new CabinetMenu();
                 this.Hide();
