@@ -54,8 +54,8 @@ namespace ClientClassLibrary
 
         public float GetHeight()
         {
-            //Adding 2 * 2cm of the 2 traverse
-            return height + 4;
+            //Adding 2 * 2cm of the 2 traverses
+            return height + float.Parse("4");
 
         }
 
