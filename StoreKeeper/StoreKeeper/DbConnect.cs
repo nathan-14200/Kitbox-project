@@ -29,7 +29,7 @@ namespace StoreKeeper
             connectionString = String.Format("server = {0}; database = {1}; uid = {2}; SslMode=none;", server, database, uid);
 
             connection = new MySqlConnection(connectionString);
-            Console.WriteLine("[TEST] DB Initialize");
+            //Console.WriteLine("[TEST] DB Initialize");
         }
 
         private bool OpenConnection()
@@ -76,7 +76,7 @@ namespace StoreKeeper
                     schema = reader.GetSchemaTable();
                 }
 
-                Console.WriteLine("Connected");
+                //Console.WriteLine("Connected");
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -100,7 +100,7 @@ namespace StoreKeeper
 
                     }
                     i += 1;
-                    Console.WriteLine("num: " + i.ToString());
+                    //Console.WriteLine("num: " + i.ToString());
                 }
 
                 dataReader.Close();
