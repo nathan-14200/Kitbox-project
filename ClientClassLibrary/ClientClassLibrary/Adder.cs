@@ -69,6 +69,7 @@ namespace ClientClassLibrary
 
         public static Dictionary<string, Dictionary<string, int>> GetPossibleAdder()
         {
+            SetAdder();
             return possibleAdder;
         }
 
@@ -83,31 +84,18 @@ namespace ClientClassLibrary
                 //les clés de pieceList sont les noms des pièces
                 Dictionary<string, int> pieceList = new Dictionary<string, int>();
                 pieceList["Porte"] = 2;
-                possibleAdder["Door"] = pieceList;
-
-                /*
-                List<Piece> allPiece = InitComp.GetAllPieces();
-                foreach(Piece piece in allPiece)
-                {
-
-                    string name = piece.GetName();
-                    string colour = piece.GetAttribute<string>("colour");
-
-                    //Adding wooden doors
-                    if(!possibleAdder.ContainsKey("Wooden Door") && name == "Porte" && colour != "Verre")
-                    {
-                        Dictionary<string, int> p = new Dictionary<string, int>();
-                        p[piece] = 2;
-                        p[coupel] = 2;
-                        possibleAdder["Porte"] = p;
-                    }
-                    else if(!possibleAdder.ContainsKey(name+"V") && name == "Porte" && colour == "Verre")
-                    {
-                        Dictionary<Piece, int> p = new Dictionary<Piece, int>();
-                    }
-                }
-                */
+                possibleAdder["Door"] = pieceList;            
             }
+        }
+
+        public string GetName()
+        {
+            return adderName;
+        }
+
+        public string GetColour()
+        {
+            return colour;
         }
 
     }

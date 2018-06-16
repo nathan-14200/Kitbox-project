@@ -26,6 +26,7 @@ namespace ClientClassLibrary
             this.colour = colour;
             this.HasAdder = hasAdder;
             this.composition = SetBox(colour, height, width, depth);
+            
         }
 
         public Dictionary<Piece, int> GetComposition()
@@ -51,11 +52,28 @@ namespace ClientClassLibrary
 
 
 
-        public float getHeight()
+        public float GetHeight()
         {
             //Adding 2 * 2cm of the 2 traverse
             return height + 4;
 
+        }
+
+        public string GetColour()
+        {
+            return colour;
+        }
+
+
+        public string GetAdderName()
+        {
+            return adder.GetName();
+        }
+
+
+        public string GetAdderColour()
+        {
+            return adder.GetColour();
         }
 
 
