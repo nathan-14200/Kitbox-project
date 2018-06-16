@@ -20,9 +20,9 @@ namespace StoreKeeper
             bool running = true;
 
             List<string> menuText = new List<string>();
-            for(int i = 0; i < menuItems.Count; i++)
+            for (int i = 0; i < menuItems.Count; i++)
             {
-                menuText.Add(String.Format("[{0}]    {1}", i+1 , menuItems[i]));
+                menuText.Add(String.Format("[{0}]    {1}", i + 1, menuItems[i]));
             }
 
             while (running)
@@ -43,10 +43,9 @@ namespace StoreKeeper
                         break;
                     case "3":
                         // show actual state of stock
-                        //fct 3
+                        ShowStock();
                         break;
                     case "4":
-                        // ask orders
                         // return txt file of orders "Valerian"
                         //fct 4
                         break;
@@ -70,7 +69,7 @@ namespace StoreKeeper
             /*
              *  Display the menu
              */
-            foreach(string item in menu)
+            foreach (string item in menu)
             {
                 Console.WriteLine(item);
             }
@@ -100,6 +99,12 @@ namespace StoreKeeper
 
             Master master = new Master();
             master.ShowStateOrder(i);
+        }
+
+        public static void ShowStock()
+        {
+            Master master = new Master();
+            master.ShowStock();
         }
     }
 }

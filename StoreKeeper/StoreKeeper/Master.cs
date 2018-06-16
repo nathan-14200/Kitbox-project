@@ -9,10 +9,12 @@ namespace StoreKeeper
     class Master
     {
         public List<Order> orders;
+        public List<Piece> stock;
 
         public Master()
         {
             this.orders = InitOrders();
+            this.stock = InitStock();
         }
 
         public List<Order> InitOrders()
@@ -45,6 +47,25 @@ namespace StoreKeeper
             return orders;
         }
 
+        public List<Piece> InitStock()
+        {
+            List<Piece> orders = new List<Piece>();
+            Dictionary<string, List<string>> pieces = this.Search("SELECT * FROM stock");
+
+            int nb_pc = pieces["Fk_Code"].Count;
+
+            for (int i=0; i<nb_pc; i++)
+            {
+                string code = pieces["Fk_Code"][i];
+                int qt = int.Parse(pieces["Enstock"][i]);
+                int qtm = int.Parse(pieces["Stock minimum"][i]);
+
+                Piece piece = new Piece(code, qt, qtm);
+                orders.Add(piece);
+            }
+            return orders;
+        }
+
         public Dictionary<string, List<string>> Search(string query)
         {
             DbConnect db = new DbConnect();
@@ -58,6 +79,14 @@ namespace StoreKeeper
             foreach(Order order in this.orders)
             {
                 Console.WriteLine(order);
+            }
+        }
+
+        public void ShowStock()
+        {
+            foreach(Piece piece in this.stock)
+            {
+                Console.WriteLine(piece);
             }
         }
 

@@ -34,5 +34,11 @@ namespace StoreKeeper
         {
             get { return this.code; }
         }
+
+        public override string ToString()
+        {
+            string txt = String.Format("{0} - {1} : {2}", this.code, this.quantity, this.quantity_min);
+            return txt;
+        }
     }
 }
