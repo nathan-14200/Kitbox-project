@@ -12,7 +12,7 @@ namespace ClientClassLibrary
         private float width;
         private float depth;
         private string colour;
-        private bool HasAdder;
+        private bool hasAdder;
         private Dictionary<Piece, int> composition = new Dictionary<Piece, int>();
         private Adder adder;
 
@@ -24,7 +24,7 @@ namespace ClientClassLibrary
             this.width = width;
             this.depth = depth;
             this.colour = colour;
-            this.HasAdder = hasAdder;
+            this.hasAdder = hasAdder;
             this.composition = SetBox(colour, height, width, depth);
             
         }
@@ -67,13 +67,29 @@ namespace ClientClassLibrary
 
         public string GetAdderName()
         {
-            return adder.GetName();
+            if(this.hasAdder == true)
+            {
+                return adder.GetName();
+            }
+
+            return "";
         }
 
 
         public string GetAdderColour()
         {
-            return adder.GetColour();
+            if (this.hasAdder == true)
+            {
+                return adder.GetColour();
+            }
+
+            return "";
+        }
+
+
+        public Boolean GetHasAdder()
+        {
+            return this.hasAdder;
         }
 
 
