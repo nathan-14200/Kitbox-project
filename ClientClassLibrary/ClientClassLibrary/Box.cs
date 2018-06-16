@@ -29,6 +29,19 @@ namespace ClientClassLibrary
             
         }
 
+        //Possibilty to add pieces to the composition
+        public void AddPiece(Piece piece, int num)
+        {
+            if(!composition.ContainsKey(piece))
+            {
+                composition[piece] = num;
+            }
+            else
+            {
+                composition[piece] += num;
+            }
+        }
+
         public Dictionary<Piece, int> GetComposition()
         {
             // Has to add the minimal pieces with the ones of the Adder
