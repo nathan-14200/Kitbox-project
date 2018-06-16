@@ -186,8 +186,8 @@ namespace Client_interface
             {
                 newBox.SetAdder(selectedAdder, selectedAdderColour);
             }
-            /*
-            if( == 1)
+            
+            if( Session.GetCabinet().AddBox(newBox) == 1)
             {
                 MessageBox.Show("Sorry you have exceeded the maximum height allowed");
                 NewBox nextform = new NewBox();
@@ -195,7 +195,7 @@ namespace Client_interface
                 nextform.ShowDialog();
                 this.Close();
             }
-            */
+            
             //load the CabinetMenu
             CabinetMenu nextForm = new CabinetMenu();
             this.Hide();
