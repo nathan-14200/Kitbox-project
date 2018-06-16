@@ -22,6 +22,12 @@ namespace Client_interface
             return myCart;
         }
 
+
+        public static Cabinet GetCabinet()
+        {
+            return actualCabinet;
+        }
+
         public static void SetActualCabinet(Cabinet cabinet)
         {
             actualCabinet = cabinet;

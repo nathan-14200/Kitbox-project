@@ -41,6 +41,8 @@ namespace Client_interface
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.adderColour = new System.Windows.Forms.ComboBox();
             this.adderColourlabel = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.validateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AdderCheckBox
@@ -120,6 +122,7 @@ namespace Client_interface
             // 
             // adderColour
             // 
+            this.adderColour.Enabled = false;
             this.adderColour.FormattingEnabled = true;
             this.adderColour.Location = new System.Drawing.Point(38, 268);
             this.adderColour.Name = "adderColour";
@@ -136,11 +139,34 @@ namespace Client_interface
             this.adderColourlabel.TabIndex = 9;
             this.adderColourlabel.Text = "Adder colour";
             // 
+            // cancelButton
+            // 
+            this.cancelButton.AutoSize = true;
+            this.cancelButton.Location = new System.Drawing.Point(38, 395);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(89, 35);
+            this.cancelButton.TabIndex = 10;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // validateButton
+            // 
+            this.validateButton.AutoSize = true;
+            this.validateButton.Location = new System.Drawing.Point(140, 395);
+            this.validateButton.Name = "validateButton";
+            this.validateButton.Size = new System.Drawing.Size(100, 35);
+            this.validateButton.TabIndex = 11;
+            this.validateButton.Text = "Validate";
+            this.validateButton.UseVisualStyleBackColor = true;
+            // 
             // NewBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.validateButton);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.adderColourlabel);
             this.Controls.Add(this.adderColour);
             this.Controls.Add(this.adderLabel);
@@ -172,5 +198,7 @@ namespace Client_interface
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ComboBox adderColour;
         private System.Windows.Forms.Label adderColourlabel;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button validateButton;
     }
 }

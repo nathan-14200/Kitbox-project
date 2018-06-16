@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientClassLibrary;
 
 namespace Client_interface
 {
@@ -15,7 +16,29 @@ namespace Client_interface
         public CabinetMenu()
         {
             InitializeComponent();
+            
         }
+
+        /*
+        private void SetDataGrid(object sender, EventArgs e)
+        {
+            DataGrid dataGrid = (DataGrid)sender;
+            Cabinet currentCabinet = Session.GetCabinet();
+
+            int index = 0;
+
+            foreach(Box box in currentCabinet.GetBoxComposition())
+            {
+               DataGrid[i,0] = i.ToString();
+               DataGrid[i,1] = box.GetHeight().ToString();
+               DataGrid[i,2] = box.GetColour();
+               DataGrid[i,3] = box.GetAdderName();
+               DataGrid[i,4] = box.GetAdderColour();
+
+               i +=1;
+            }
+        }
+        */
 
         private void Cancel_Click(object sender, EventArgs e)
         {
@@ -39,6 +62,11 @@ namespace Client_interface
             this.Hide();
             nextForm.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

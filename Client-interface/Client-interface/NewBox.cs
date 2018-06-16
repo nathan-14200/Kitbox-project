@@ -29,6 +29,7 @@ namespace Client_interface
             SetComboBox(heightBox, "height");
             SetComboBox(colourBox, "colour");
             SetComboBox(adderBox, "adder");
+            SetComboBox(adderColour, "adderColour");
 
         }
 
@@ -74,31 +75,37 @@ namespace Client_interface
             else if (car == "adderColour")
             {
                 Dictionary<string, int> adderComp = new Dictionary<string, int>();
-
+                values.Add(Adder.GetPossibleAdder().Count().ToString());
+                
                 foreach (var element in Adder.GetPossibleAdder())
                 {
+                    values.Add(element.Key);
                     if(element.Key == selectedAdder)
                     {
+                        values.Add("in door");
                         adderComp = element.Value;
                         break;
                     }
                 }
-
+                values.Add(adderComp.Count().ToString());
+                values.Add("hi before p");
                 //We assume that each piece have the same colour and available colour so doesn't matter with piece we choose
                 foreach(var p in adderComp)
                 {
                     string name = p.Key;
+                    values.Add("hi");
+                    foreach (Piece piece in allPieces)
+                    {
+                        string pieceColour = piece.GetColour();
+                        if (piece.GetName() == name && !values.Contains(pieceColour))
+                        {
+                            values.Add(pieceColour);
+                        }
+                    }
                     break;                    
                 }
                 
-                foreach(Piece piece in allPieces)
-                {
-                    string pieceColour = piece.GetColour();
-                    if(piece.GetName() == name && !values.Contains(pieceColour))
-                    {
-                        values.Add(pieceColour);
-                    }
-                }
+                
                  
             }
             
@@ -147,7 +154,20 @@ namespace Client_interface
             adderColour.Enabled = hasAdder;
         }
 
-
-        
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult delete = MessageBox.Show("Are you sure to cancel your box?", "Cancel box", MessageBoxButtons.YesNo);
+            if (delete == DialogResult.Yes)
+            {
+                //Delete the cart in program
+                CabinetMenu nextForm = new CabinetMenu();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
+            else if (delete == DialogResult.No)
+            {
+            }
+        }
     }
 }
