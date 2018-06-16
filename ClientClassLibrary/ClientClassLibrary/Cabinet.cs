@@ -48,6 +48,12 @@ namespace ClientClassLibrary
             this.height = h;
         }
 
+
+        public List<Box> GetBoxComposition()
+        {
+            return this.boxComposition;
+        }
+
         public int AddBox(Box box)
         {
             //Has to check if not more than 7 boxes and certain height limit.            
