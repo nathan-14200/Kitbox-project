@@ -50,11 +50,9 @@ namespace ClientClassLibrary
 
         public int AddBox(Box box)
         {
-            //Has to check if not more than 7 boxes and certain height limit.
-            //Error message if not added?
-            
-            float height = box.GetHeight() + this.height;
-            if(boxComposition.Count() < 7 && maxHeight > this.height)  // + height limit
+            //Has to check if not more than 7 boxes and certain height limit.            
+            float heightTest = box.GetHeight() + this.height;
+            if(maxHeight > heightTest)  // + height limit
             {
                 boxComposition.Add(box);
                 this.height += box.GetHeight();
