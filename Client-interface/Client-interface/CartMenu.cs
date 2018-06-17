@@ -13,10 +13,14 @@ namespace Client_interface
 {
     public partial class CartMenu : Form
     {
+        private string selectedCabinet = "";
+
         public CartMenu()
         {
             InitializeComponent();
             SetDataGrid(dataGridCart);
+            SetComboBox(CabinetBox);
+
         }
 
 
@@ -59,6 +63,18 @@ namespace Client_interface
         }
 
 
+        private void SetComboBox(ComboBox comboBox)
+        {
+            int cabinetCount = Session.Cart().GetCabinets().Count();
+            int i = 1;
+            while(i <= cabinetCount)
+            {
+                comboBox.Items.Add(i);
+                i += 1;
+            }
+        }
+
+
         private void cancel_Click(object sender, EventArgs e)
         {
             DialogResult delete = MessageBox.Show("Are you sure to delete your cart?", "Deleting cart", MessageBoxButtons.YesNo);
@@ -96,6 +112,31 @@ namespace Client_interface
         private void dataGridCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if(selectedCabinet != "")
+            {
+                List<Cabinet> cabinetList = Session.Cart().GetCabinets();
+                Cabinet cabinet = cabinetList[int.Parse(selectedCabinet) - 1];
+                Session.Cart().DeleteCabinet(cabinet);
+
+                CartMenu nextForm = new CartMenu();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("You must select a cabinet to delete");
+            }
+        }
+
+        private void CabinetBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            selectedCabinet = comboBox.Text;
         }
     }
 }

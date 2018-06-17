@@ -13,11 +13,13 @@ namespace Client_interface
 {
     public partial class CabinetMenu : Form
     {
+        private string selectedBox = "";
+
         public CabinetMenu()
         {
             InitializeComponent();
             SetDataGrid(dataGridView1);
-            
+            SetComboBox(BoxBox);
         }
 
         
@@ -44,6 +46,19 @@ namespace Client_interface
 
             grid.Refresh();
             grid.ReadOnly = true;
+        }
+
+
+        private void SetComboBox(ComboBox comboBox)
+        {
+            int boxCount = Session.GetCabinet().GetBoxComposition().Count();
+            int i = 1;
+
+            while(i <= boxCount)
+            {
+                comboBox.Items.Add(i);
+                i += 1;
+            }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -73,8 +88,34 @@ namespace Client_interface
         private void Validate_Click(object sender, EventArgs e)
         {
             CabinetValidate nextForm = new CabinetValidate();
+            this.Hide();
             nextForm.ShowDialog();
             this.Close();
+        }
+
+        private void BoxBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            selectedBox = comboBox.Text;
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (selectedBox != "")
+            {
+                List<Box> boxList = Session.GetCabinet().GetBoxComposition();
+                Box box = boxList[int.Parse(selectedBox) - 1];
+                Session.GetCabinet().DeleteBox(box);
+
+                CabinetMenu nextForm = new CabinetMenu();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("You must select a cabinet to delete");
+            }
         }
     }
 }

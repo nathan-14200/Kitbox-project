@@ -30,13 +30,15 @@
         {
             this.newCabinet = new System.Windows.Forms.Button();
             this.validate = new System.Windows.Forms.Button();
-            this.modify = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.dataGridCart = new System.Windows.Forms.DataGridView();
             this.Cabinet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoxNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CabinetBox = new System.Windows.Forms.ComboBox();
+            this.CabinetLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,15 +64,16 @@
             this.validate.UseVisualStyleBackColor = true;
             this.validate.Click += new System.EventHandler(this.validate_Click);
             // 
-            // modify
+            // Delete
             // 
-            this.modify.Location = new System.Drawing.Point(485, 506);
-            this.modify.Margin = new System.Windows.Forms.Padding(4);
-            this.modify.Name = "modify";
-            this.modify.Size = new System.Drawing.Size(132, 45);
-            this.modify.TabIndex = 3;
-            this.modify.Text = "modify";
-            this.modify.UseVisualStyleBackColor = true;
+            this.Delete.Location = new System.Drawing.Point(485, 506);
+            this.Delete.Margin = new System.Windows.Forms.Padding(4);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(132, 45);
+            this.Delete.TabIndex = 3;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // cancel
             // 
@@ -85,6 +88,8 @@
             // 
             // dataGridCart
             // 
+            this.dataGridCart.AllowUserToAddRows = false;
+            this.dataGridCart.AllowUserToDeleteRows = false;
             this.dataGridCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridCart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridCart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -98,7 +103,7 @@
             this.dataGridCart.Name = "dataGridCart";
             this.dataGridCart.ReadOnly = true;
             this.dataGridCart.RowTemplate.Height = 33;
-            this.dataGridCart.Size = new System.Drawing.Size(740, 385);
+            this.dataGridCart.Size = new System.Drawing.Size(740, 327);
             this.dataGridCart.TabIndex = 5;
             this.dataGridCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCart_CellContentClick);
             // 
@@ -106,34 +111,58 @@
             // 
             this.Cabinet.HeaderText = "Cabinet";
             this.Cabinet.Name = "Cabinet";
+            this.Cabinet.ReadOnly = true;
             this.Cabinet.Width = 131;
             // 
             // Height
             // 
             this.Height.HeaderText = "Height";
             this.Height.Name = "Height";
+            this.Height.ReadOnly = true;
             this.Height.Width = 119;
             // 
             // BoxNum
             // 
             this.BoxNum.HeaderText = "Box number";
             this.BoxNum.Name = "BoxNum";
+            this.BoxNum.ReadOnly = true;
             this.BoxNum.Width = 172;
             // 
             // Price
             // 
             this.Price.HeaderText = "Price";
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             this.Price.Width = 106;
+            // 
+            // CabinetBox
+            // 
+            this.CabinetBox.FormattingEnabled = true;
+            this.CabinetBox.Location = new System.Drawing.Point(17, 506);
+            this.CabinetBox.Name = "CabinetBox";
+            this.CabinetBox.Size = new System.Drawing.Size(121, 33);
+            this.CabinetBox.TabIndex = 6;
+            this.CabinetBox.SelectedIndexChanged += new System.EventHandler(this.CabinetBox_SelectedIndexChanged);
+            // 
+            // CabinetLabel
+            // 
+            this.CabinetLabel.AutoSize = true;
+            this.CabinetLabel.Location = new System.Drawing.Point(12, 461);
+            this.CabinetLabel.Name = "CabinetLabel";
+            this.CabinetLabel.Size = new System.Drawing.Size(179, 25);
+            this.CabinetLabel.TabIndex = 7;
+            this.CabinetLabel.Text = "Cabinet selected:";
             // 
             // CartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 566);
+            this.Controls.Add(this.CabinetLabel);
+            this.Controls.Add(this.CabinetBox);
             this.Controls.Add(this.dataGridCart);
             this.Controls.Add(this.cancel);
-            this.Controls.Add(this.modify);
+            this.Controls.Add(this.Delete);
             this.Controls.Add(this.validate);
             this.Controls.Add(this.newCabinet);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -142,6 +171,7 @@
             this.Load += new System.EventHandler(this.CartMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,12 +179,14 @@
 
         private System.Windows.Forms.Button newCabinet;
         private System.Windows.Forms.Button validate;
-        private System.Windows.Forms.Button modify;
+        private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.DataGridView dataGridCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cabinet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Height;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoxNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.ComboBox CabinetBox;
+        private System.Windows.Forms.Label CabinetLabel;
     }
 }
