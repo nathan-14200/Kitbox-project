@@ -59,6 +59,12 @@
     <Compile Include="CabinetMenu.Designer.cs">
       <DependentUpon>CabinetMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CabinetValidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CabinetValidate.Designer.cs">
+      <DependentUpon>CabinetValidate.cs</DependentUpon>
+    </Compile>
     <Compile Include="CartMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Session.cs" />
     <EmbeddedResource Include="CabinetMenu.resx">
       <DependentUpon>CabinetMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CabinetValidate.resx">
+      <DependentUpon>CabinetValidate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CartMenu.resx">
       <DependentUpon>CartMenu.cs</DependentUpon>

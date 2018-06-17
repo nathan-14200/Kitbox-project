@@ -37,7 +37,6 @@
             this.Colour1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adderColour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.test = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +71,7 @@
             this.Validate.TabIndex = 2;
             this.Validate.Text = "Validate";
             this.Validate.UseVisualStyleBackColor = true;
+            this.Validate.Click += new System.EventHandler(this.Validate_Click);
             // 
             // dataGridView1
             // 
@@ -89,7 +89,6 @@
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(686, 376);
             this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Box
             // 
@@ -121,21 +120,11 @@
             this.adderColour.Name = "adderColour";
             this.adderColour.Width = 194;
             // 
-            // test
-            // 
-            this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(375, 404);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(47, 25);
-            this.test.TabIndex = 4;
-            this.test.Text = "test";
-            // 
             // CabinetMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.test);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Validate);
             this.Controls.Add(this.NewBox);
@@ -159,6 +148,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Colour1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adder;
         private System.Windows.Forms.DataGridViewTextBoxColumn adderColour;
-        private System.Windows.Forms.Label test;
     }
 }

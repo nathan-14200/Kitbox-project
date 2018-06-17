@@ -179,30 +179,50 @@ namespace Client_interface
 
         private void validateButton_Click(object sender, EventArgs e)
         {
-            //create the box
-            Cabinet currentCab = Session.GetCabinet();
-            Box newBox = new Box(float.Parse(selectedHeight), currentCab.GetWidth(), currentCab.GetDepth(), selectedColour, hasAdder);
-            if(hasAdder == true)
+            if(selectedColour != "" && selectedHeight != "")
             {
-                newBox.SetAdder(selectedAdder, selectedAdderColour);
+                //create the box
+                Cabinet currentCab = Session.GetCabinet();
+                Box newBox = new Box(float.Parse(selectedHeight), currentCab.GetWidth(), currentCab.GetDepth(), selectedColour, hasAdder);
+
+                //Adding Adder if correctly selected
+                if (hasAdder == true && selectedAdder != "" && selectedAdderColour != "")
+                {
+                    newBox.SetAdder(selectedAdder, selectedAdderColour);
+
+                    //Adding Coupel to the composition of the box if checked
+                    if(CoupelBox.Checked == true)
+                    {
+                        List<Piece> allPieces = InitComp.GetAllPieces();
+                        foreach(Piece piece in allPieces)
+                        {
+                            if(piece.GetID() == "COUPEL")
+                            {
+                                newBox.AddPiece(piece, 2);
+                                break;
+                            }
+                        }                        
+                    }                                     
+                }
+
+                if (Session.GetCabinet().AddBox(newBox) == 1)
+                {
+                    MessageBox.Show("Sorry you have exceeded the maximum height allowed");
+                    NewBox nextform = new NewBox();
+                    this.Hide();
+                    nextform.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    //load the CabinetMenu
+                    CabinetMenu nextForm = new CabinetMenu();
+                    this.Hide();
+                    nextForm.ShowDialog();
+                    this.Close();
+                }
             }
             
-            if( Session.GetCabinet().AddBox(newBox) == 1)
-            {
-                MessageBox.Show("Sorry you have exceeded the maximum height allowed");
-                NewBox nextform = new NewBox();
-                this.Hide();
-                nextform.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                //load the CabinetMenu
-                CabinetMenu nextForm = new CabinetMenu();
-                this.Hide();
-                nextForm.ShowDialog();
-                this.Close();
-            }
             
         }
     }

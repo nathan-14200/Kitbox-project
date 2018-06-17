@@ -17,7 +17,6 @@ namespace Client_interface
         {
             InitializeComponent();
             SetDataGrid(dataGridView1);
-            test.Text = dataGridView1.ColumnCount.ToString();
             
         }
 
@@ -71,10 +70,11 @@ namespace Client_interface
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Validate_Click(object sender, EventArgs e)
         {
-
+            CabinetValidate nextForm = new CabinetValidate();
+            nextForm.ShowDialog();
+            this.Close();
         }
-
     }
 }
