@@ -29,8 +29,21 @@ namespace Client_interface
 
             if (myCart.GetCabinets().Count() > 0)
             {
+                //test
+                string str = "";
                 foreach (Cabinet cabinet in myCart.GetCabinets())
                 {
+                    foreach(var p in cabinet.GetBoxComposition())
+                    {
+                        foreach(var c in p.GetComposition())
+                        {
+                            str += c.Key.GetID() + "/n";
+                        }
+                        
+                    }
+                    MessageBox.Show(str);
+                    //test
+
                     grid.Rows.Add();
                     grid.Rows[i].Cells[0].Value = (i + 1).ToString();
                     grid.Rows[i].Cells[1].Value = cabinet.GetHeight().ToString();

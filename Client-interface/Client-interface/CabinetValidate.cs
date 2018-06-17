@@ -70,7 +70,7 @@ namespace Client_interface
             //Retrieve all Corniere
             foreach (Piece p in allPieces)
             {
-                if(p.GetName() == "Cornière")
+                if(p.GetName() == "Cornières")
                 {
                     allCorniere.Add(p);
                 }
@@ -119,7 +119,7 @@ namespace Client_interface
             {
 
                 Session.GetCabinet().SetCorniere(GetCorniere(selectedColour, Session.GetCabinet().GetHeight()));
-                
+                MessageBox.Show(GetCorniere(selectedColour, Session.GetCabinet().GetHeight()).GetID());
                 CartMenu nextForm = new CartMenu();
                 this.Hide();
                 nextForm.ShowDialog();
