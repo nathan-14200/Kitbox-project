@@ -120,7 +120,7 @@ namespace ClientClassLibrary
 
         public float GetPrice()
         {
-            Dictionary<Piece, int> comp = this.GetComposition();
+            Dictionary<Piece, int> comp = GetComposition();
             float total = 0;
 
             foreach(var piece in comp)
