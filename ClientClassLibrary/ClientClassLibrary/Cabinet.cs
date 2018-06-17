@@ -117,5 +117,18 @@ namespace ClientClassLibrary
             }
             return composition;
         }
+
+        public float GetPrice()
+        {
+            Dictionary<Piece, int> comp = this.GetComposition();
+            float total = 0;
+
+            foreach(var piece in comp)
+            {
+                total += piece.Key.GetPrice() * piece.Value;
+            }
+
+            return total;
+        }
     }
 }
