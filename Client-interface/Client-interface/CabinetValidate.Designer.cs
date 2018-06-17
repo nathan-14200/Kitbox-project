@@ -46,6 +46,7 @@
             this.CorniereBox.Name = "CorniereBox";
             this.CorniereBox.Size = new System.Drawing.Size(176, 33);
             this.CorniereBox.TabIndex = 0;
+            this.CorniereBox.SelectedIndexChanged += new System.EventHandler(this.CorniereBox_SelectedIndexChanged);
             // 
             // CorniereLabel
             // 

@@ -61,6 +61,49 @@ namespace Client_interface
             }
         }
 
+        private Piece GetCorniere(string colour, float height)
+        {
+            List<Piece> allPieces = InitComp.GetAllPieces();
+            List<Piece> allCorniere = new List<Piece>();
+            Piece myCorniere = new Piece("0000", "0", 0, 0, 0, 0, "0", false);
+
+            //Retrieve all Corniere
+            foreach (Piece p in allPieces)
+            {
+                if(p.GetName() == "Cornière")
+                {
+                    allCorniere.Add(p);
+                }
+            }
+
+            //Check if standard size
+            foreach(Piece c in allCorniere)
+            {
+                if(c.GetHeight() == height)
+                {
+                    myCorniere = c;
+                }
+            }
+
+            //Otherwise take the biggest cutted corniere
+            if(myCorniere.GetID() == "0000")
+            {
+                while(height%25 != 0)
+                {
+                    height += 1;
+                }
+
+                foreach(Piece c in allCorniere)
+                {
+                    if(c.GetHeight() == height)
+                    {
+                        myCorniere = c;
+                    }
+                }
+            }
+            return myCorniere;
+        }
+
         private void Cancel_Click(object sender, EventArgs e)
         {            
            //Delete the cart in program
@@ -74,14 +117,24 @@ namespace Client_interface
         {
             if(selectedColour != "")
             {
-                //Add les bonnes cornieres
-                CabinetMenu nextForm = new CabinetMenu();
+
+                Session.GetCabinet().SetCorniere(GetCorniere(selectedColour, Session.GetCabinet().GetHeight()));
+                
+                CartMenu nextForm = new CartMenu();
                 this.Hide();
                 nextForm.ShowDialog();
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("You must select a colour before you can continue");
+            }
+        }
 
-
+        private void CorniereBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            selectedColour = (string)comboBox.Text;
         }
     }
 }

@@ -16,7 +16,35 @@ namespace Client_interface
         public CartMenu()
         {
             InitializeComponent();
+            SetDataGrid(dataGridCart);
         }
+
+
+        private void SetDataGrid(object sender)
+        {
+            DataGridView grid = (DataGridView)sender;
+            Cart myCart = Session.Cart();
+            grid.ReadOnly = false;
+            int i = 0;
+
+            if (myCart.GetCabinets().Count() > 0)
+            {
+                foreach (Cabinet cabinet in myCart.GetCabinets())
+                {
+                    grid.Rows.Add();
+                    grid.Rows[i].Cells[0].Value = (i + 1).ToString();
+                    grid.Rows[i].Cells[1].Value = cabinet.GetHeight().ToString();
+                    grid.Rows[i].Cells[2].Value = cabinet.GetBoxComposition().Count().ToString();
+                    //grid.Rows[i].Cells[3].Value = cabinet.GetPrice().ToString();
+
+                    i += 1;
+                }
+            }
+
+            grid.Refresh();
+            grid.ReadOnly = true;
+        }
+
 
         private void cancel_Click(object sender, EventArgs e)
         {
@@ -44,6 +72,11 @@ namespace Client_interface
         }
 
         private void CartMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void validate_Click(object sender, EventArgs e)
         {
 
         }
