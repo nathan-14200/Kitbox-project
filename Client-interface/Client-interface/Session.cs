@@ -32,5 +32,17 @@ namespace Client_interface
         {
             actualCabinet = cabinet;
         }
+
+        public static float GetPrice(Dictionary<Piece, int> setPiece)
+        {
+            float total = 0;
+            
+            foreach(var p in setPiece)
+            {
+                total += (p.Key.GetPrice() * p.Value);
+            }
+
+            return total;
+        }
     }
 }
