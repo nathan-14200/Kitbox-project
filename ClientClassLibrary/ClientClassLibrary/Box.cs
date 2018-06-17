@@ -47,11 +47,14 @@ namespace ClientClassLibrary
             // Has to add the minimal pieces with the ones of the Adder
             Dictionary<Piece, int> comp = this.composition;
 
-            Dictionary<Piece, int> adderComp = adder.GetComp();
-            foreach(var item in adderComp)
+            if(hasAdder == true)
             {
-                comp[item.Key] = item.Value;
-            }
+                Dictionary<Piece, int> adderComp = adder.GetComp();
+                foreach (var item in adderComp)
+                {
+                    comp[item.Key] = item.Value;
+                }
+            }            
             return comp;
         }
 
