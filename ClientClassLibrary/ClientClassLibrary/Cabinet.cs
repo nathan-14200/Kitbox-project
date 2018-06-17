@@ -79,16 +79,9 @@ namespace ClientClassLibrary
         {
             //To be changed (no print)
 
-            foreach (Box elem in this.boxComposition)
+            if(boxComposition.Contains(box))
             {
-                if (box == elem)
-                {
-                    boxComposition.Remove(box);
-                }
-                else
-                {
-                    Console.WriteLine("Box not found");
-                }
+                boxComposition.Remove(box);
             }
         }
 
