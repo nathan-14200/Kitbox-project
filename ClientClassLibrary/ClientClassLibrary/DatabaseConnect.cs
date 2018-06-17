@@ -74,7 +74,7 @@ namespace ClientClassLibrary
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 DataTable schema = null;
 
-                //Gets the name of the columns
+                //Get the name of the columns
                 using (var reader = cmd.ExecuteReader(System.Data.CommandBehavior.SchemaOnly))
                 {
                     schema = reader.GetSchemaTable();
@@ -118,6 +118,16 @@ namespace ClientClassLibrary
                 return data;
             }
 
+        }
+
+        //Modify the db
+        public void Modify(string query)
+        {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
