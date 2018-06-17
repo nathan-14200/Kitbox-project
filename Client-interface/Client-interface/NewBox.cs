@@ -222,6 +222,11 @@ namespace Client_interface
                     this.Close();
                 }
             }
+            else
+            {
+                MessageBox.Show("You must select a colour and a height for your box");
+            }
+            
             
             
         }
