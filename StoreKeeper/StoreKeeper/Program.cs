@@ -7,6 +7,8 @@ namespace StoreKeeper
     {
         private static Master master = new Master();
 
+
+        // Text for all the actions of the menu
         private static List<string> menuItems = new List<string>()
             {
                 "Search orders",
@@ -23,6 +25,7 @@ namespace StoreKeeper
         {
             bool running = true;
 
+            // create the text for the menu
             List<string> menuText = new List<string>();
             for (int i = 0; i < menuItems.Count; i++)
             {
@@ -35,6 +38,7 @@ namespace StoreKeeper
 
                 Console.Clear();
 
+                // execute the input action
                 switch (choice)
                 {
                     case "1":
@@ -71,6 +75,7 @@ namespace StoreKeeper
                         AddPiece();
                         break;
                     case "8":
+                        // exit
                         Console.WriteLine("[Exit]");
                         running = false;
                         break;

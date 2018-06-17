@@ -35,7 +35,8 @@ namespace StoreKeeper
 
         public double Ratio(string code)
         {
-            return this.catalog[code].Item1 * this.catalog[code].Item2; // ERROR HERE
+            // 
+            return this.catalog[code].Item1 * this.catalog[code].Item2;
         }
     }
 }
