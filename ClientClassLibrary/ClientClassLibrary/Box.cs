@@ -47,7 +47,7 @@ namespace ClientClassLibrary
             // Has to add the minimal pieces with the ones of the Adder
             Dictionary<Piece, int> comp = this.composition;
 
-            if(hasAdder == true)
+            if(this.hasAdder == true)
             {
                 Dictionary<Piece, int> adderComp = adder.GetComp();
                 foreach (var item in adderComp)
@@ -71,7 +71,7 @@ namespace ClientClassLibrary
         public float GetHeight()
         {
             //Adding 2 * 2cm of the 2 traverses
-            return height + float.Parse("4");
+            return this.height + float.Parse("4");
 
         }
 
@@ -96,7 +96,7 @@ namespace ClientClassLibrary
         {
             if (this.hasAdder == true)
             {
-                return adder.GetColour();
+                return this.adder.GetColour();
             }
 
             return "";
