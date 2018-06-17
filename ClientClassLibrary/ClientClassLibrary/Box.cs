@@ -50,7 +50,7 @@ namespace ClientClassLibrary
             Dictionary<Piece, int> adderComp = adder.GetComp();
             foreach(var item in adderComp)
             {
-                comp.Add(item.Key, item.Value);
+                comp[item.Key] = item.Value;
             }
             return comp;
         }
@@ -114,33 +114,33 @@ namespace ClientClassLibrary
             
             foreach(Piece piece in allPieces)
             {
-                if(piece.GetName() == "Panneau Ar" && piece.GetColour() == colour && piece.GetHeight() == height && !myBox.ContainsKey(piece))
+                if(piece.GetName() == "Panneau Ar" && piece.GetColour() == colour && piece.GetHeight() == height && piece.GetWidth() == width)
                 {
                     myBox[piece] = 1;
                 }
-                else if(piece.GetName() == "Panneau GD" && piece.GetColour() == colour && piece.GetHeight() == height && !myBox.ContainsKey(piece))
+                else if(piece.GetName() == "Panneau GD" && piece.GetColour() == colour && piece.GetHeight() == height && piece.GetDepth() == depth)
                 {
                     myBox[piece] = 2;
                 }
-                else if (piece.GetName() == "Panneau HB" && piece.GetColour() == colour && piece.GetHeight() == height && !myBox.ContainsKey(piece))
+                else if (piece.GetName() == "Panneau HB" && piece.GetColour() == colour && piece.GetWidth() == width && piece.GetDepth() == depth)
                 {
                     //2 HB panels
                     myBox[piece] = 2;
-                }//Only one type of traverse differing by their height
-                else if (piece.GetName() == "Traverse Ar" && piece.GetColour() == colour && piece.GetWidth() == height)
-                {
-                    //2  AR traverses
-                    myBox[piece] = 2;
                 }
-                else if (piece.GetName() == "Traverse Av" && piece.GetColour() == colour && piece.GetHeight() == height)
+                else if (piece.GetName() == "Traverse Ar" && piece.GetWidth() == width)
                 {
-                    //2 Av traverse
-                    myBox[piece] = 2;
+                    //1  AR traverses
+                    myBox[piece] = 1;
                 }
-                else if (piece.GetName() == "Traverse GD" && piece.GetColour() == colour && piece.GetHeight() == height)
+                else if (piece.GetName() == "Traverse Av" && piece.GetWidth() == width)
                 {
-                    //4 GD traverse
-                    myBox[piece] = 4;
+                    //1 Av traverse
+                    myBox[piece] = 1;
+                }
+                else if (piece.GetName() == "Traverse GD" && piece.GetWidth() == width)
+                {
+                    //2 GD traverse
+                    myBox[piece] = 2;
                 }
                 else if(piece.GetName() == "Tasseau" && piece.GetHeight() == height)
                 {
