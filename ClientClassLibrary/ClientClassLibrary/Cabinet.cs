@@ -98,7 +98,7 @@ namespace ClientClassLibrary
             composition = new Dictionary<Piece, int>();
             
             //Adding corniere
-            composition[corniere] = 4;
+            composition[this.corniere] = 4;
 
             foreach(Box box in boxComposition)
             {
