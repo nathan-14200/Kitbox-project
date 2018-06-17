@@ -81,7 +81,6 @@ namespace Client_interface
             this.Hide();
             nextForm.ShowDialog();
             this.Close();
-
         }
 
         private void CartMenu_Load(object sender, EventArgs e)
@@ -90,6 +89,11 @@ namespace Client_interface
         }
 
         private void validate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -79,7 +79,7 @@ namespace Client_interface
             //Check if standard size
             foreach(Piece c in allCorniere)
             {
-                if(c.GetHeight() == height)
+                if(c.GetHeight() == height && c.GetColour() == colour)
                 {
                     myCorniere = c;
                 }

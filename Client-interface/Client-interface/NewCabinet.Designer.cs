@@ -141,6 +141,7 @@
             // 
             // clear
             // 
+            this.clear.AutoSize = true;
             this.clear.Location = new System.Drawing.Point(149, 549);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(108, 35);

@@ -87,6 +87,7 @@
             // 
             this.dataGridCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridCart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridCart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cabinet,
@@ -95,9 +96,11 @@
             this.Price});
             this.dataGridCart.Location = new System.Drawing.Point(17, 100);
             this.dataGridCart.Name = "dataGridCart";
+            this.dataGridCart.ReadOnly = true;
             this.dataGridCart.RowTemplate.Height = 33;
             this.dataGridCart.Size = new System.Drawing.Size(740, 385);
             this.dataGridCart.TabIndex = 5;
+            this.dataGridCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCart_CellContentClick);
             // 
             // Cabinet
             // 
