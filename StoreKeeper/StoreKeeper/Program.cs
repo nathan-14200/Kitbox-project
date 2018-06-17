@@ -48,7 +48,8 @@ namespace StoreKeeper
                         break;
                     case "3":
                         // return txt file of orders 
-                        //fct 3
+                        ShowOrders();
+                        PrintState();
                         break;
                     case "4":
                         // show actual state of stock
@@ -116,6 +117,14 @@ namespace StoreKeeper
 
             master.Init();
             master.ShowStateOrder(i);
+        }
+
+        public static void PrintState()
+        {
+            int i = AskOrder();
+
+            master.Init();
+            master.PrintStateOrder(i);
         }
 
         public static void ShowStock()

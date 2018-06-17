@@ -166,6 +166,31 @@ namespace StoreKeeper
             Console.WriteLine(txt);
         }
 
+        public void PrintStateOrder(int i)
+        {
+            string txt = "";
+
+            Order order = FindOrder(i);
+
+            if (order != null)
+            {
+                Dictionary<string, Tuple<int, int>> elems = order.Dictcomp;
+
+                foreach (string elem in elems.Keys)
+                {
+                    int qt = order.Quantity(elem);
+                    int qtt = order.TotalQuantity(elem);
+
+                    txt = txt + String.Format("{0} - {1}/{2} {3}", elem, qt, qtt, Environment.NewLine);
+                }
+            }
+            else { txt = "Retry"; }
+
+            string path = String.Format(@"../cl-{0}.txt", order.ID);
+
+            System.IO.File.WriteAllText(path, txt);
+        }
+
         public Order FindOrder(int id)
         {
             foreach (Order order in this.orders)
