@@ -35,7 +35,7 @@ namespace Client_interface
                     grid.Rows[i].Cells[0].Value = (i + 1).ToString();
                     grid.Rows[i].Cells[1].Value = cabinet.GetHeight().ToString();
                     grid.Rows[i].Cells[2].Value = cabinet.GetBoxComposition().Count().ToString();
-                    //grid.Rows[i].Cells[3].Value = cabinet.GetPrice().ToString();
+                    grid.Rows[i].Cells[3].Value = cabinet.GetPrice().ToString();
 
                     i += 1;
                 }
