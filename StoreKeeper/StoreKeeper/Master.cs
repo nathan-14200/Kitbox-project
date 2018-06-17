@@ -113,6 +113,12 @@ namespace StoreKeeper
             return data;
         }
 
+        public void Write(string query)
+        {
+            DbConnect db = new DbConnect();
+            db.Modify(query);
+        }
+
         public void ShowOrders()
         {
             foreach (Order order in this.orders)
@@ -234,13 +240,14 @@ namespace StoreKeeper
                     txt = txt + String.Format("{0} - {1} / {2} / {3}{4}", code, cmd[code].Item1, cmd[code].Item2, cmd[code].Item3, Environment.NewLine);
                 }
 
-                string path = @"/output/cmd.txt";
+                string path = @"../cmd.txt";
 
                 System.IO.File.WriteAllText(path, txt);
             }
             catch (Exception e)
             {
                 Console.WriteLine("[PRINT] : No command made");
+                Console.WriteLine(e);
             }
         }
 
@@ -260,6 +267,37 @@ namespace StoreKeeper
             {
                 Console.WriteLine("[SHOW] : No command made");
             }
+        }
+
+        public Piece FindPiece(string code)
+        {
+            for (int i = 0; i < this.stock.Count; i++)
+            {
+                if (this.stock[i].Code == code) { return this.stock[i]; }
+            }
+            return null;
+        }
+
+        public void RemovePiece(Tuple<string, int> piece)
+        {
+            Piece p = FindPiece(piece.Item1);
+            int qt = p.Quantity - piece.Item2;
+
+            string code = "'" + p.Code + "'";
+
+            string query = String.Format("UPDATE stock SET Enstock={0} WHERE stock.Fk_Code={1}", qt, code);
+            Write(query);
+        }
+
+        public void AddPiece(Tuple<string, int> piece)
+        {
+            Piece p = FindPiece(piece.Item1);
+            int qt = p.Quantity + piece.Item2;
+
+            string code = "'" + p.Code + "'";
+
+            string query = String.Format("UPDATE stock SET Enstock={0} WHERE stock.Fk_Code={1}", qt, code);
+            Write(query);
         }
     }
 }

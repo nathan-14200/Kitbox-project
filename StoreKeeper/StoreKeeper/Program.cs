@@ -14,6 +14,8 @@ namespace StoreKeeper
                 "Print orders",
                 "See state of stock",
                 "Make orders to suppliers",
+                "Remove piece",
+                "Add piece",
                 "Exit"
             };
 
@@ -58,6 +60,16 @@ namespace StoreKeeper
                         MakeCmd();
                         break;
                     case "6":
+                        // remove piece
+                        ShowStock();
+                        RemovePiece();
+                        break;
+                    case "7":
+                        // add piece
+                        ShowStock();
+                        AddPiece();
+                        break;
+                    case "8":
                         Console.WriteLine("[Exit]");
                         running = false;
                         break;
@@ -118,6 +130,27 @@ namespace StoreKeeper
             Dictionary<string, Tuple<string, int, double>> cmd = master.CommandStock();
             master.ShowCmd(cmd);
             master.PrintCmd(cmd);
+        }
+
+        public static Tuple<string, int> AskPiece()
+        {
+            Console.WriteLine("Code of the piece : ");
+            string code = Console.ReadLine();
+            Console.WriteLine("Quantity : ");
+            int qt = int.Parse(Console.ReadLine());
+            return new Tuple<string, int>(code, qt);
+        }
+
+        public static void RemovePiece()
+        {
+            Tuple<string, int> piece = AskPiece();
+            master.RemovePiece(piece);
+        }
+
+        public static void AddPiece()
+        {
+            Tuple<string, int> piece = AskPiece();
+            master.AddPiece(piece);
         }
     }
 }

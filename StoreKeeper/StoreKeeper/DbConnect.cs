@@ -113,7 +113,15 @@ namespace StoreKeeper
                 Console.WriteLine("Could not connect");
                 return data;
             }
+        }
 
+        public void Modify(string query)
+        {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery(); //[ERROR] :  WITH CLAUSE
+            }
         }
     }
 }
