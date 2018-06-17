@@ -12,6 +12,7 @@ namespace ClientClassLibrary
         private float width = 0;
         private float depth = 0;
         private float height = 0;
+        private Piece corniere;
         //value of the heighest Corniere
         private float maxHeight = 375;
         //private double height;
@@ -46,6 +47,11 @@ namespace ClientClassLibrary
         public void SetHeight(float h)
         {
             this.height = h;
+        }
+
+        public void SetCorniere(Piece p)
+        {
+            this.corniere = p;
         }
 
 
@@ -90,6 +96,9 @@ namespace ClientClassLibrary
         public Dictionary<Piece, int> GetComposition()
         {
             composition = new Dictionary<Piece, int>();
+            
+            //Adding corniere
+            composition[corniere] = 4;
 
             foreach(Box box in boxComposition)
             {
