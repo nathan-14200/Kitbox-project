@@ -11,7 +11,6 @@ namespace ClientClassLibrary
         public static List<Piece> PossiblePiece(string attribute)
         {
             //Retrieve corresponding pieces depending on the search (width or depth)
-            //DOES NOT CHECK IF EMPTY
             List<Piece> allPiece = InitComp.GetAllPieces();
             List<Piece> askedPiece = new List<Piece>();
             //width = largeur (Panneau Ar)
@@ -66,6 +65,7 @@ namespace ClientClassLibrary
             return newList;
         }
 
+
         public static List<Piece> UpdateListPiece<T>(List<Piece> myPiece, string attribute, T value)
         {
             //Filter a list of pieces wich have the same attribute
@@ -78,10 +78,7 @@ namespace ClientClassLibrary
                     updatedList.Add(piece);
                 }
             }
-
             return updatedList;
         }
-
-        //Add function to search for highest Cornières?
     }
 }

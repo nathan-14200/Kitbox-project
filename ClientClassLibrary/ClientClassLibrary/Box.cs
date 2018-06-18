@@ -29,6 +29,7 @@ namespace ClientClassLibrary
             
         }
 
+
         //Possibilty to add pieces to the composition
         public void AddPiece(Piece piece, int num)
         {
@@ -41,6 +42,7 @@ namespace ClientClassLibrary
                 composition[piece] += num;
             }
         }
+
 
         public Dictionary<Piece, int> GetComposition()
         {
@@ -72,8 +74,8 @@ namespace ClientClassLibrary
         {
             //Adding 2 * 2cm of the 2 traverses
             return this.height + float.Parse("4");
-
         }
+
 
         public string GetColour()
         {
@@ -151,7 +153,6 @@ namespace ClientClassLibrary
                     myBox[piece] = 4;
                 }
             }
-
             return myBox;
         }
     }

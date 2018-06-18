@@ -15,10 +15,12 @@ namespace ClientClassLibrary
         private string database;
         private string uid;
 
+
         public DatabaseConnect()
         {
             Initialize();
         }
+
 
         private void Initialize()
         {
@@ -32,6 +34,7 @@ namespace ClientClassLibrary
             connection = new MySqlConnection(connectionString);
             Console.WriteLine("hi there");
         }
+
 
         private bool OpenConnection()
         {
@@ -47,6 +50,7 @@ namespace ClientClassLibrary
 
             }
         }
+
 
         private bool CloseConnection()
         {
@@ -119,6 +123,7 @@ namespace ClientClassLibrary
             }
 
         }
+
 
         //Modify the db
         public void Modify(string query)

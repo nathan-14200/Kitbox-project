@@ -27,10 +27,12 @@ namespace ClientClassLibrary
             
         }
 
+
         public float GetWidth()
         {
             return this.width;
         }
+
 
         public float GetDepth()
         {
@@ -49,6 +51,7 @@ namespace ClientClassLibrary
             this.height = h;
         }
 
+
         public void SetCorniere(Piece p)
         {
             this.corniere = p;
@@ -59,6 +62,7 @@ namespace ClientClassLibrary
         {
             return this.boxComposition;
         }
+
 
         public int AddBox(Box box)
         {
@@ -74,6 +78,7 @@ namespace ClientClassLibrary
 
             return 1;            
         }
+
 
         public void DeleteBox(Box box)
         {
@@ -110,6 +115,7 @@ namespace ClientClassLibrary
             }
             return composition;
         }
+
 
         public float GetPrice()
         {

@@ -31,6 +31,7 @@ namespace ClientClassLibrary
             }
         }
 
+
         public List<Cabinet> GetCabinets()
         {
             return this.order;
@@ -60,6 +61,7 @@ namespace ClientClassLibrary
 
             return cartComp;
         }
+
 
         public float GetPrice()
         {
