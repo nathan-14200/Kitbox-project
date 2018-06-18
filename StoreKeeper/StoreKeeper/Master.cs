@@ -154,6 +154,8 @@ namespace StoreKeeper
             {
                 Dictionary<string, Tuple<int, int>> elems = order.Dictcomp;
 
+                Console.WriteLine(String.Format("{0} ----- {1} : {2} ----- {3}", Environment.NewLine, "State order", order.ID, Environment.NewLine));
+
                 foreach (string elem in elems.Keys)
                 {
                     int qt = order.Quantity(elem);
