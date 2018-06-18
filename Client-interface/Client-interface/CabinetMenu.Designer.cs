@@ -59,16 +59,16 @@
             this.NewBox.AutoSize = true;
             this.NewBox.Location = new System.Drawing.Point(479, 477);
             this.NewBox.Name = "NewBox";
-            this.NewBox.Size = new System.Drawing.Size(101, 35);
+            this.NewBox.Size = new System.Drawing.Size(107, 35);
             this.NewBox.TabIndex = 1;
-            this.NewBox.Text = "NewBox";
+            this.NewBox.Text = "New Box";
             this.NewBox.UseVisualStyleBackColor = true;
             this.NewBox.Click += new System.EventHandler(this.NewBox_Click);
             // 
             // Validate
             // 
             this.Validate.AutoSize = true;
-            this.Validate.Location = new System.Drawing.Point(586, 477);
+            this.Validate.Location = new System.Drawing.Point(592, 477);
             this.Validate.Name = "Validate";
             this.Validate.Size = new System.Drawing.Size(100, 35);
             this.Validate.TabIndex = 2;
