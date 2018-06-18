@@ -121,6 +121,7 @@ namespace StoreKeeper
 
         public void ShowOrders()
         {
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "Orders", Environment.NewLine));
             foreach (Order order in this.orders)
             {
                 Console.WriteLine(order);
@@ -129,13 +130,13 @@ namespace StoreKeeper
 
         public void ShowStock()
         {
-            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "pieces in stock", Environment.NewLine));
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "Pieces in stock", Environment.NewLine));
             foreach (Piece piece in this.stock)
             {
                 if (piece.Stock)
                     Console.WriteLine(piece);
             }
-            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "pieces to buy", Environment.NewLine));
+            Console.WriteLine(String.Format("{0} ----- {1} ----- {2}", Environment.NewLine, "Pieces to buy", Environment.NewLine));
             foreach (Piece piece in this.stock)
             {
                 if (!piece.Stock)
