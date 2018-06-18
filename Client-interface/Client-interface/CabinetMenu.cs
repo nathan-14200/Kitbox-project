@@ -43,7 +43,6 @@ namespace Client_interface
                     i += 1;
                 }
             }
-
             grid.Refresh();
             grid.ReadOnly = true;
         }
@@ -61,6 +60,7 @@ namespace Client_interface
             }
         }
 
+
         private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult delete = MessageBox.Show("Are you sure to cancel your cabinet?", "Cancel cart", MessageBoxButtons.YesNo);
@@ -77,6 +77,7 @@ namespace Client_interface
             }
         }
 
+
         private void NewBox_Click(object sender, EventArgs e)
         {
             NewBox nextForm = new NewBox();
@@ -84,6 +85,7 @@ namespace Client_interface
             nextForm.ShowDialog();
             this.Close();
         }
+
 
         private void Validate_Click(object sender, EventArgs e)
         {
@@ -93,12 +95,14 @@ namespace Client_interface
             this.Close();
         }
 
+
         private void BoxBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             selectedBox = comboBox.Text;
         }
 
+        //Delete selected box
         private void delete_Click(object sender, EventArgs e)
         {
             if (selectedBox != "")

@@ -23,13 +23,11 @@ namespace Client_interface
 
         private void NewCabinet_Load(object sender, EventArgs e)
         {
-            //Have to us dic even though it is twice the same value because ComboBox needs a dictionary
             SetComboBoxValues(widthBox, "width");
             SetComboBoxValues(depthBox,"depth");
         }
 
-        //car is the specification you will look for in all the pieces (width or depth)       
-        //All pieces exist in all format so no need to update the combo box when the other is validated
+        //car is the specification it will look for in all the pieces (width or depth)
         private void SetComboBoxValues(ComboBox myComboBox, string car)
         {
             string width = this.selectedWidth;
@@ -46,7 +44,6 @@ namespace Client_interface
                 if (!val.Contains(t) && t != 0)
                 {
                     val.Add(t);
-                    //values[t] = t;
                 }
              }
             val.Sort();
@@ -66,6 +63,7 @@ namespace Client_interface
             widthBox.Enabled = false;
         }
 
+
         //Set the depth and load new values for the width comboBox (that have the same depth)
         private void DepthValidate_Click(object sender, EventArgs e)
         {
@@ -73,6 +71,7 @@ namespace Client_interface
             this.selectedDepth = value;
             depthBox.Enabled = false;
         }
+
 
         //Next window
         private void newBox_Click(object sender, EventArgs e)
@@ -107,7 +106,9 @@ namespace Client_interface
             nextForm.ShowDialog();
             this.Close();
         }
-        //??
+
+
+        
         private void widthBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;

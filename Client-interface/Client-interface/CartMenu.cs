@@ -20,7 +20,6 @@ namespace Client_interface
             InitializeComponent();
             SetDataGrid(dataGridCart);
             SetComboBox(CabinetBox);
-
         }
 
 
@@ -33,21 +32,8 @@ namespace Client_interface
 
             if (myCart.GetCabinets().Count() > 0)
             {
-                //test
-                string str = "";
                 foreach (Cabinet cabinet in myCart.GetCabinets())
                 {
-                    foreach(var p in cabinet.GetBoxComposition())
-                    {
-                        foreach(var c in p.GetComposition())
-                        {
-                            str += c.Key.GetID() + "/n";
-                        }
-                        
-                    }
-                    MessageBox.Show(str);
-                    //test
-
                     grid.Rows.Add();
                     grid.Rows[i].Cells[0].Value = (i + 1).ToString();
                     grid.Rows[i].Cells[1].Value = cabinet.GetHeight().ToString();
@@ -57,7 +43,6 @@ namespace Client_interface
                     i += 1;
                 }
             }
-
             grid.Refresh();
             grid.ReadOnly = true;
         }
@@ -91,6 +76,7 @@ namespace Client_interface
             }
         }
 
+
         private void newCabinet_Click(object sender, EventArgs e)
         {
             NewCabinet nextForm = new NewCabinet();
@@ -99,10 +85,6 @@ namespace Client_interface
             this.Close();
         }
 
-        private void CartMenu_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void validate_Click(object sender, EventArgs e)
         {
@@ -121,10 +103,6 @@ namespace Client_interface
             
         }
 
-        private void dataGridCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void Delete_Click(object sender, EventArgs e)
         {
@@ -144,6 +122,7 @@ namespace Client_interface
                 MessageBox.Show("You must select a cabinet to delete");
             }
         }
+
 
         private void CabinetBox_SelectedIndexChanged(object sender, EventArgs e)
         {

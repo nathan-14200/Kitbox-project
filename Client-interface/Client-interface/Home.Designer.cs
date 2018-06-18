@@ -65,7 +65,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Home";
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

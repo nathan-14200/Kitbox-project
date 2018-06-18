@@ -20,32 +20,19 @@ namespace Client_interface
             
         }
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
         private void button1_Click(object sender, EventArgs e)
         {
-            //Test
+            //Load piece from database
             if(InitComp.GetAllPieces().Count() == 0)
             {
                 ClientClassLibrary.InitComp.Retrievecomp();
             }
-            
-            MessageBox.Show("size of allPieces: " + ClientClassLibrary.InitComp.GetAllPieces().Count().ToString());
-            //Test
 
             Session.InitCart();
             CartMenu nextForm = new CartMenu();
             this.Hide();
             nextForm.ShowDialog();
             this.Close();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-            AllocConsole();
-            
         }
     }
 }

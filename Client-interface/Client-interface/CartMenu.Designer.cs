@@ -105,7 +105,6 @@
             this.dataGridCart.RowTemplate.Height = 33;
             this.dataGridCart.Size = new System.Drawing.Size(740, 327);
             this.dataGridCart.TabIndex = 5;
-            this.dataGridCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCart_CellContentClick);
             // 
             // Cabinet
             // 
@@ -168,7 +167,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CartMenu";
             this.Text = "Cart Menu";
-            this.Load += new System.EventHandler(this.CartMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

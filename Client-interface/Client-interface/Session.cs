@@ -17,6 +17,7 @@ namespace Client_interface
             myCart = new Cart();
         }
 
+
         public static Cart Cart()
         {
             return myCart;
@@ -28,10 +29,12 @@ namespace Client_interface
             return actualCabinet;
         }
 
+
         public static void SetActualCabinet(Cabinet cabinet)
         {
             actualCabinet = cabinet;
         }
+
 
         public static float GetPrice(Dictionary<Piece, int> setPiece)
         {
@@ -41,7 +44,6 @@ namespace Client_interface
             {
                 total += (p.Key.GetPrice() * p.Value);
             }
-
             return total;
         }
     }

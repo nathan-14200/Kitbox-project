@@ -25,13 +25,14 @@ namespace Client_interface
             InitializeComponent();
         }
 
+
         private void NewBox_Load(object sender, EventArgs e)
         {
             SetComboBox(heightBox, "height");
             SetComboBox(colourBox, "colour");
             SetComboBox(adderBox, "adder");
-
         }
+
 
         private void SetComboBox(ComboBox myComboBox, string car)
         {
@@ -62,7 +63,6 @@ namespace Client_interface
                     }
                 }
             }
-            //car = Adder
             else if(car == "adder")
             {
                 //Get all possible adders
@@ -73,15 +73,15 @@ namespace Client_interface
                 }
             }            
             else if (car == "adderColour")
-            {
-                
+            {                
                 foreach (var element in Adder.GetPossibleAdder())
                 {
                     if(element.Key == selectedAdder)
                     {
                         foreach(var p in element.Value)
                         {
-                            //We assume that each piece have the same colour and available colour so doesn't matter with piece we choose
+                            //We assume that each piece have the same colour and 
+                            //available colour so it doesn't matter which piece we choose
                             string name = p.Key;
 
                             foreach(Piece piece in allPieces)
@@ -93,8 +93,7 @@ namespace Client_interface
                                 }
                             }
                             break;
-                        }
-                        
+                        }                        
                     }
                 }                              
             }
@@ -103,10 +102,8 @@ namespace Client_interface
             {
                 myComboBox.Items.Add(str);
             }
-
-
-
         }
+
 
         private void heightBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -120,6 +117,7 @@ namespace Client_interface
             ComboBox comboBox = (ComboBox)sender;
             selectedColour = (string)comboBox.Text;
         }
+        
 
         private void adderBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -154,6 +152,7 @@ namespace Client_interface
             adderBox.Enabled = hasAdder;
             adderColour.Enabled = hasAdder;
         }
+        
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -171,15 +170,16 @@ namespace Client_interface
             }
         }
 
+
         private void CoupelBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cupBox = (CheckBox)sender;
             this.hasCoupel = cupBox.Checked;
         }
 
+
         private void validateButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(hasAdder.ToString());
             if(selectedColour != "" && selectedHeight != "")
             {
                 if(hasAdder == true && (selectedAdder == "" || selectedAdderColour == ""))
@@ -211,7 +211,6 @@ namespace Client_interface
                             }
                         }
                     }
-
                     if (Session.GetCabinet().AddBox(newBox) == 1)
                     {
                         MessageBox.Show("Sorry you have exceeded the maximum height allowed");
@@ -228,17 +227,12 @@ namespace Client_interface
                         nextForm.ShowDialog();
                         this.Close();
                     }
-                }
-
-                
+                }                
             }
             else
             {
                 MessageBox.Show("You must select a colour and a height for your box");
-            }
-            
-            
-            
+            }            
         }
     }
 }

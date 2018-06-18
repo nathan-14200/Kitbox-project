@@ -15,7 +15,6 @@ namespace Client_interface
     {
         private string selectedColour = "";
 
-
         public CabinetValidate()
         {
             InitializeComponent();
@@ -61,6 +60,7 @@ namespace Client_interface
             }
         }
 
+
         private Piece GetCorniere(string colour, float height)
         {
             List<Piece> allPieces = InitComp.GetAllPieces();
@@ -75,6 +75,7 @@ namespace Client_interface
                     allCorniere.Add(p);
                 }
             }
+
 
             //Check if standard size
             foreach(Piece c in allCorniere)
@@ -95,7 +96,7 @@ namespace Client_interface
 
                 foreach(Piece c in allCorniere)
                 {
-                    if(c.GetHeight() == height)
+                    if(c.GetHeight() == height && c.GetColour() == colour)
                     {
                         myCorniere = c;
                     }
@@ -103,6 +104,7 @@ namespace Client_interface
             }
             return myCorniere;
         }
+
 
         private void Cancel_Click(object sender, EventArgs e)
         {            
@@ -113,13 +115,12 @@ namespace Client_interface
            this.Close();
          }
 
+
         private void Finalise_Click(object sender, EventArgs e)
         {
             if(selectedColour != "")
             {
-
                 Session.GetCabinet().SetCorniere(GetCorniere(selectedColour, Session.GetCabinet().GetHeight()));
-                MessageBox.Show(GetCorniere(selectedColour, Session.GetCabinet().GetHeight()).GetID());
                 CartMenu nextForm = new CartMenu();
                 this.Hide();
                 nextForm.ShowDialog();
