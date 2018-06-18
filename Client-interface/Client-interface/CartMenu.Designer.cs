@@ -167,7 +167,7 @@
             this.Controls.Add(this.newCabinet);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CartMenu";
-            this.Text = "CartMenu";
+            this.Text = "Cart Menu";
             this.Load += new System.EventHandler(this.CartMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCart)).EndInit();
             this.ResumeLayout(false);

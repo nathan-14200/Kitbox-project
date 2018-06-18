@@ -27,7 +27,11 @@ namespace Client_interface
         private void button1_Click(object sender, EventArgs e)
         {
             //Test
-            ClientClassLibrary.InitComp.Retrievecomp();
+            if(InitComp.GetAllPieces().Count() == 0)
+            {
+                ClientClassLibrary.InitComp.Retrievecomp();
+            }
+            
             MessageBox.Show("size of allPieces: " + ClientClassLibrary.InitComp.GetAllPieces().Count().ToString());
             //Test
 

@@ -93,7 +93,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(710, 386);
             this.dataGridView1.TabIndex = 3;
             // 
             // Box
@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 533);
+            this.ClientSize = new System.Drawing.Size(793, 531);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.BoxBox);
             this.Controls.Add(this.BoxLabel);
@@ -173,7 +173,7 @@
             this.Controls.Add(this.NewBox);
             this.Controls.Add(this.Cancel);
             this.Name = "CabinetMenu";
-            this.Text = "CabinetMenu";
+            this.Text = "Cabinet Menu";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -106,7 +106,19 @@ namespace Client_interface
 
         private void validate_Click(object sender, EventArgs e)
         {
-
+            DialogResult ask = MessageBox.Show("Have you finished you order?", "Order check", MessageBoxButtons.YesNo);
+            if (ask == DialogResult.Yes)
+            {
+                //Code Valerian
+                OrderRegistered nextForm = new OrderRegistered();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
+            else if (ask == DialogResult.No)
+            {
+            }
+            
         }
 
         private void dataGridCart_CellContentClick(object sender, DataGridViewCellEventArgs e)

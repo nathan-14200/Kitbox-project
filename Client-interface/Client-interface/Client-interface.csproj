@@ -71,11 +71,11 @@
     <Compile Include="CartMenu.Designer.cs">
       <DependentUpon>CartMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="NewBox.cs">
       <SubType>Form</SubType>
@@ -89,6 +89,12 @@
     <Compile Include="NewCabinet.Designer.cs">
       <DependentUpon>NewCabinet.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderRegistered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderRegistered.Designer.cs">
+      <DependentUpon>OrderRegistered.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -101,14 +107,17 @@
     <EmbeddedResource Include="CartMenu.resx">
       <DependentUpon>CartMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewBox.resx">
       <DependentUpon>NewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewCabinet.resx">
       <DependentUpon>NewCabinet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderRegistered.resx">
+      <DependentUpon>OrderRegistered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

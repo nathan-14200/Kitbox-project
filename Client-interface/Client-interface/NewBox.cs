@@ -179,48 +179,58 @@ namespace Client_interface
 
         private void validateButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(hasAdder.ToString());
             if(selectedColour != "" && selectedHeight != "")
             {
-                //create the box
-                Cabinet currentCab = Session.GetCabinet();
-                Box newBox = new Box(float.Parse(selectedHeight), currentCab.GetWidth(), currentCab.GetDepth(), selectedColour, hasAdder);
-
-                //Adding Adder if correctly selected
-                if (hasAdder == true && selectedAdder != "" && selectedAdderColour != "")
+                if(hasAdder == true && (selectedAdder == "" || selectedAdderColour == ""))
                 {
-                    newBox.SetAdder(selectedAdder, selectedAdderColour);
-
-                    //Adding Coupel to the composition of the box if checked
-                    if(CoupelBox.Checked == true)
-                    {
-                        List<Piece> allPieces = InitComp.GetAllPieces();
-                        foreach(Piece piece in allPieces)
-                        {
-                            if(piece.GetID() == "COUPEL")
-                            {
-                                newBox.AddPiece(piece, 2);
-                                break;
-                            }
-                        }                        
-                    }                                     
-                }
-
-                if (Session.GetCabinet().AddBox(newBox) == 1)
-                {
-                    MessageBox.Show("Sorry you have exceeded the maximum height allowed");
-                    NewBox nextform = new NewBox();
-                    this.Hide();
-                    nextform.ShowDialog();
-                    this.Close();
+                    MessageBox.Show("If you checked Adder you must select an adder and its colour");
                 }
                 else
                 {
-                    //load the CabinetMenu
-                    CabinetMenu nextForm = new CabinetMenu();
-                    this.Hide();
-                    nextForm.ShowDialog();
-                    this.Close();
+                    //create the box
+                    Cabinet currentCab = Session.GetCabinet();
+                    Box newBox = new Box(float.Parse(selectedHeight), currentCab.GetWidth(), currentCab.GetDepth(), selectedColour, hasAdder);
+
+                    //Adding Adder if correctly selected
+                    if (hasAdder == true)
+                    {
+                        newBox.SetAdder(selectedAdder, selectedAdderColour);
+
+                        //Adding Coupel to the composition of the box if checked
+                        if (CoupelBox.Checked == true)
+                        {
+                            List<Piece> allPieces = InitComp.GetAllPieces();
+                            foreach (Piece piece in allPieces)
+                            {
+                                if (piece.GetID() == "COUPEL")
+                                {
+                                    newBox.AddPiece(piece, 2);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    if (Session.GetCabinet().AddBox(newBox) == 1)
+                    {
+                        MessageBox.Show("Sorry you have exceeded the maximum height allowed");
+                        NewBox nextform = new NewBox();
+                        this.Hide();
+                        nextform.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        //load the CabinetMenu
+                        CabinetMenu nextForm = new CabinetMenu();
+                        this.Hide();
+                        nextForm.ShowDialog();
+                        this.Close();
+                    }
                 }
+
+                
             }
             else
             {

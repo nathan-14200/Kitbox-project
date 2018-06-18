@@ -192,7 +192,7 @@ namespace Client_interface
             this.Controls.Add(this.heightBox);
             this.Controls.Add(this.AdderCheckBox);
             this.Name = "NewBox";
-            this.Text = "NewBox";
+            this.Text = "New Box";
             this.Load += new System.EventHandler(this.NewBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

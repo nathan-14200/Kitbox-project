@@ -139,7 +139,7 @@
             this.Controls.Add(this.CorniereLabel);
             this.Controls.Add(this.CorniereBox);
             this.Name = "CabinetValidate";
-            this.Text = "CabinetValidate";
+            this.Text = "Cabinet Validate";
             this.ResumeLayout(false);
             this.PerformLayout();
 
