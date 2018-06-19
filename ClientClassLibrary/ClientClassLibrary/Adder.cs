@@ -15,6 +15,7 @@ namespace ClientClassLibrary
         private string colour;
         private Dictionary<Piece, int> comp = new Dictionary<Piece, int>();
 
+
         public Adder(string adderName, float width, float height, string colour)
         {
             this.adderName = adderName;
@@ -60,6 +61,7 @@ namespace ClientClassLibrary
             return keyList;
         }
 
+
         //Get the dictionary of pieces of the adder
         public Dictionary<Piece, int> GetComp()
         {
@@ -80,18 +82,19 @@ namespace ClientClassLibrary
         {
             if(possibleAdder.Count() == 0)
             {
-                //hard code du Adder porte
-                //les clés de pieceList sont les noms des pièces
+                //hardcoded door
                 Dictionary<string, int> pieceList = new Dictionary<string, int>();
                 pieceList["Porte"] = 2;
                 possibleAdder["Door"] = pieceList;            
             }
         }
 
+
         public string GetName()
         {
             return adderName;
         }
+
 
         public string GetColour()
         {

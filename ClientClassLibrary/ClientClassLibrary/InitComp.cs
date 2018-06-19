@@ -12,6 +12,7 @@ namespace ClientClassLibrary
     {
         private static List<Piece> allPieces = new List<Piece>();
 
+
         public static void Retrievecomp()
         {
             //Test
@@ -35,22 +36,18 @@ namespace ClientClassLibrary
                 {
                     inStock = true;
                 }
-
                 allPieces.Add(new Piece(rawData["Code"][i], rawData["Ref"][i], float.Parse(rawData["Prix-Client"][i]),
                     float.Parse(rawData["hauteur"][i]), float.Parse(rawData["largeur"][i]),
-                    float.Parse(rawData["profondeur"][i]),rawData["Couleur"][i], inStock));
-
-                
+                    float.Parse(rawData["profondeur"][i]),rawData["Couleur"][i], inStock));                
             }
-            //Test
-            Console.WriteLine("End of Retrieve");
-            //Test
         }
+
 
         public static List<Piece> GetAllPieces()
         {
             return allPieces;
         }
+
 
         //Return the given piece or empty if not found
         public static Piece GetPieceByID(string id)
@@ -63,12 +60,10 @@ namespace ClientClassLibrary
                     return piece;
                 }
             }
-
             Piece notFind = new Piece("", "", 0, 0, 0, 0, "", false);
             return notFind;
         }
-
-
+        
         
         public static void UpdateDB(String CmdString, Dictionary<String,int> Mod)
         {
@@ -94,12 +89,11 @@ namespace ClientClassLibrary
                     command.Parameters.Add(Key, SqlDbType.VarChar);
                     command.Parameters[Key].Value = Mod[Key];
                 }
-
                 conn.Open();
-
                 command.ExecuteNonQuery();
             }
         }
+
 
         public static List<Object[]> ReadDB(String CmdString)
         {
@@ -132,7 +126,6 @@ namespace ClientClassLibrary
                     }
                 }
             }
-
             return Result;
         }
     }

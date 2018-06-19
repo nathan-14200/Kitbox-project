@@ -27,10 +27,12 @@ namespace ClientClassLibrary
             
         }
 
+
         public float GetWidth()
         {
             return this.width;
         }
+
 
         public float GetDepth()
         {
@@ -49,6 +51,7 @@ namespace ClientClassLibrary
             this.height = h;
         }
 
+
         public void SetCorniere(Piece p)
         {
             this.corniere = p;
@@ -60,11 +63,12 @@ namespace ClientClassLibrary
             return this.boxComposition;
         }
 
+
         public int AddBox(Box box)
         {
             //Has to check if not more than 7 boxes and certain height limit.            
             float heightTest = box.GetHeight() + this.height;
-            if(maxHeight > heightTest)  // + height limit
+            if(maxHeight >= heightTest && boxComposition.Count() < 7)  // + height limit
             {
                 boxComposition.Add(box);
                 this.height += box.GetHeight();
@@ -75,20 +79,14 @@ namespace ClientClassLibrary
             return 1;            
         }
 
+
         public void DeleteBox(Box box)
         {
             //To be changed (no print)
 
-            foreach (Box elem in this.boxComposition)
+            if(boxComposition.Contains(box))
             {
-                if (box == elem)
-                {
-                    boxComposition.Remove(box);
-                }
-                else
-                {
-                    Console.WriteLine("Box not found");
-                }
+                boxComposition.Remove(box);
             }
         }
 
@@ -117,6 +115,7 @@ namespace ClientClassLibrary
             }
             return composition;
         }
+
 
         public float GetPrice()
         {

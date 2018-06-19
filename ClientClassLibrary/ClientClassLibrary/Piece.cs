@@ -17,6 +17,7 @@ namespace ClientClassLibrary
         private string colour;
         private bool instock;
 
+
         public Piece(string ID, string name, float price, float heigth, float width, float depth, string colour, bool instock)
         {
             this.ID = ID;
@@ -35,15 +36,18 @@ namespace ClientClassLibrary
             return this.instock;
         }
 
+
         public string GetName()
         {
             return this.name;
         }
 
+
         public float GetPrice()
         {
             return this.price;
         }
+
 
         public string GetColour()
         {
@@ -55,6 +59,7 @@ namespace ClientClassLibrary
             return this.ID;
         }
 
+
         public float GetHeight()
         {
             return this.heigth;
@@ -65,10 +70,12 @@ namespace ClientClassLibrary
             return this.width;
         }
 
+
         public float GetDepth()
         {
             return this.depth;
         }
+
 
         public T GetAttribute<T>(string attribute)
         {
@@ -78,17 +85,14 @@ namespace ClientClassLibrary
             {
                 return (T)Convert.ChangeType(GetHeight(), typeof(T));
             }
-
             else if (attribute == "depth")
             {
                 return (T)Convert.ChangeType(GetDepth(), typeof(T));
             }
-
             else if (attribute == "width")
             {
                 return (T)Convert.ChangeType(GetWidth(), typeof(T));
             }
-
             else if (attribute == "colour")
             {
                 return (T)Convert.ChangeType(GetColour(), typeof(T));
