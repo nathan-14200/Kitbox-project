@@ -11,6 +11,11 @@ namespace ClientClassLibrary
 {
     public class PostProcess
     {
+		
+		public void PostProcess()
+		{
+		}
+		
         public void Ticket(Cart cart)
         {
             Dictionary<Piece, int> Ticket = cart.GetComposition(); 
