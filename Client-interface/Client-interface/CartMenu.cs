@@ -92,6 +92,15 @@ namespace Client_interface
             if (ask == DialogResult.Yes)
             {
                 //Code Valerian
+				
+				Postprocess pp = new Postprocess();
+				Cart c = Session.Cart();
+				//print ticket
+				pp.Ticket(c);
+				//update db
+				pp.Stock(c);
+				
+				
                 OrderRegistered nextForm = new OrderRegistered();
                 this.Hide();
                 nextForm.ShowDialog();
